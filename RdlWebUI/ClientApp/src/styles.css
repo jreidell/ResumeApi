@@ -1,16 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  font-size: 10vw;
+}
+
+.empListing {
+  list-style-type: none;
+  font-size: 13pt;
+}
+
+.jobTitle {
+  font-weight: bold;
+  list-style-type: none;
+  font-size: 11pt;
+}
+
+.jobDescription {
+  list-style-type: none;
+  font-size: 10pt;
+}
+
+.workHistoryDetail {
+  list-style-type: square;
+  font-size: 10pt;
+}
+
+.noDotLi {
+  list-style-type: none;
+  font-size: 10pt;
+}
+
 #limheight {
   /*min-height: 300px;*/
   -webkit-column-count: 3;
   -moz-column-count: 3;
   column-count: 3; /*3 is just placeholder -- can be anything*/
+  font-size: 9pt;
 }
 
   #limheight li {
     list-style-type: circle;
     padding-bottom: 5px;
     margin-right: 30px;
-    font-size: 9pt;
   }
 
     #limheight li a {
@@ -19,10 +49,64 @@
 
 h2 {
   text-align: center;
+  font-size: 30vw;
 }
 h4 {
   text-align: center;
+  font-size: 18vw;
 }
 h6 {
   text-align: center;
+  font-size: 12vw;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 8vw;
+  }
+
+  .empListing {
+    list-style-type: none;
+    font-size: 11pt;
+  }
+
+  .jobTitle {
+    font-weight: bold;
+    list-style-type: none;
+    font-size: 9pt;
+  }
+
+  .jobDescription {
+    list-style-type: none;
+    font-size: 8pt;
+  }
+
+  .workHistoryDetail {
+    list-style-type: square;
+    font-size: 8pt;
+  }
+
+  .noDotLi {
+    list-style-type: none;
+    font-size: 8pt;
+  }
+
+  #limheight {
+    /*min-height: 300px;*/
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3; /*3 is just placeholder -- can be anything*/
+    font-size: 7pt;
+  }
+
+    #limheight li {
+      list-style-type: circle;
+      padding-bottom: 5px;
+      margin-right: 30px;
+    }
+
+      #limheight li a {
+        color: rgb(0, 162, 232);
+      }
+
 }

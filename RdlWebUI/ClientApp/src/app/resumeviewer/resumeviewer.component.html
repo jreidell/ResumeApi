@@ -5,18 +5,18 @@
   <hr />
   <h4>{{resume.CareerInfoTitle}}</h4>
   <hr />
-  <p style="font-size: 10pt;">{{resume.Summary}}</p>
+  <p>{{resume.Summary}}</p>
   <ul id="limheight">
     <li *ngFor="let jobSkill of resume.JobSkills">{{jobSkill.JobSkillTitle}}</li>
   </ul>
   <hr />
   <ul *ngFor="let workHistory of resume.WorkHistory">
-    <li style="font-size: 13pt;list-style-type: none;">{{workHistory.Employer}}, {{workHistory.StartDate | date:'MMMM yyyy'}} - {{workHistory.EndDate | date:'MMMM yyyy'}}</li>
-    <li style="font-weight: bold;list-style-type: none;">{{workHistory.JobTitle}}</li>
-    <li style="font-size: 10pt;list-style-type: none;">{{workHistory.JobDescription}}</li>
-    <li style="list-style-type: none;">
+    <li class="empListing">{{workHistory.Employer}}, {{workHistory.StartDate | date:'MMMM yyyy'}} - {{workHistory.EndDate | date:'MMMM yyyy'}}</li>
+    <li class="jobTitle">{{workHistory.JobTitle}}</li>
+    <li class="jobDescription">{{workHistory.JobDescription}}</li>
+    <li class="noDotLi">
       <ul *ngFor="let workHistoryDetail of workHistory.WorkHistoryDetails">
-        <li style="font-size: 10pt;list-style-type: square;">{{workHistoryDetail.ContentBody}}</li>
+        <li class="workHistoryDetail">{{workHistoryDetail.ContentBody}}</li>
       </ul>
     </li>
     <hr />
