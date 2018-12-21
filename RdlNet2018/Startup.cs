@@ -10,6 +10,7 @@ using RdlNet2018.Contracts;
 using RdlNet2018.Data;
 using RdlNet2018.Repos;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
 
 namespace RdlNet2018
 {
@@ -76,11 +77,15 @@ namespace RdlNet2018
 
             app.UseHttpsRedirection();
             app.UseMvc();
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
+
+            if (!Configuration["DisableSwagger"].Equals("true", StringComparison.InvariantCultureIgnoreCase))
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reidell.net 2018 - RdlNet2018 Web API");
-            });
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reidell.net 2018 - RdlNet2018 Web API");
+                });
+            }
         }
     }
 }

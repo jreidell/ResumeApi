@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /archive
 /RXapp
+/RdlWebUI/ClientApp/package-lock.json
