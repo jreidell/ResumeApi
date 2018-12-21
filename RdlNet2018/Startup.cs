@@ -31,7 +31,7 @@ namespace RdlNet2018
             // Add EF services to the services container.
             services.AddEntityFrameworkSqlServer()
                .AddDbContext<RDL2018Context>(options =>
-                  options.UseSqlServer(Configuration["DefaultConnection"]));
+                  options.UseSqlServer(Configuration["Data:ConnectionStrings:DefaultConnection"]));
 
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
