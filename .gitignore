@@ -262,3 +262,7 @@ __pycache__/
 /archive
 /RXapp
 /RdlWebUI/ClientApp/package-lock.json
+/RdlNet2018/appsettings.json
+/RdlNet2018/appsettings.Development.json
+/RdlWebUI/appsettings.Development.json
+/RdlWebUI/appsettings.json
