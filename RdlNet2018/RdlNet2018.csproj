@@ -7,12 +7,16 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\**" />
+    <Compile Remove="Models\**" />
     <Compile Remove="Pages\**" />
     <Content Remove="Migrations\**" />
+    <Content Remove="Models\**" />
     <Content Remove="Pages\**" />
     <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Models\**" />
     <EmbeddedResource Remove="Pages\**" />
     <None Remove="Migrations\**" />
+    <None Remove="Models\**" />
     <None Remove="Pages\**" />
   </ItemGroup>
 
@@ -22,8 +26,6 @@
     <Compile Remove="Controllers\ValuesController.cs" />
     <Compile Remove="Data\ContentDBContext.cs" />
     <Compile Remove="Data\RdlNet2018DBInitializer.cs" />
-    <Compile Remove="Models\Content.cs" />
-    <Compile Remove="Models\ContentItem.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +39,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RdlNet2018.Models\RdlNet2018.Models.csproj" />
   </ItemGroup>
 
 </Project>
