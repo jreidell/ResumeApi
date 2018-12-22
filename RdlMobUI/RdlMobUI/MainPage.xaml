@@ -3,16 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RdlMobUI"
              x:Class="RdlMobUI.MainPage">
-
-    <StackLayout>
+    <StackLayout Orientation="Vertical" Spacing="1">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand"
-           x:Name="lblText" />
-        <Button Text="Get Resume Data!" 
+           VerticalOptions="StartAndExpand"
+           x:Name="lblFullName" 
+           FontSize="10"
+           HorizontalTextAlignment="Center" />
+        <Label Text="" 
+           HorizontalOptions="Start"
+           x:Name="lblSummary" 
+           FontSize="8" 
+           Margin="2"
+           VerticalOptions="Start"
+           HorizontalTextAlignment="Start" BackgroundColor="Beige" />
+        <Label Text="" 
+           HorizontalOptions="Center"
+           x:Name="lblAddress" 
+           FontSize="8" 
+           Margin="2"
+           HorizontalTextAlignment="Start" />
+        <Label Text="" 
+           HorizontalOptions="Center"
+           VerticalOptions="StartAndExpand"
+           x:Name="lblContactInfo" 
+           FontSize="8" 
+           HorizontalTextAlignment="Center" />
+        <Label Text="" 
+           HorizontalOptions="Center"
+           VerticalOptions="StartAndExpand"
+           x:Name="lblResumeTitle" 
+           FontSize="6" 
+           HorizontalTextAlignment="Center" />
+        <Label Text="" 
+           HorizontalOptions="Center"
+           VerticalOptions="EndAndExpand"
+           x:Name="lblError" />
+        <Button Text="Refresh Resume Data!" 
            x:Name="btnGetResume" 
            Clicked="btnGetResume_Click" />
     </StackLayout>
-
 </ContentPage>
