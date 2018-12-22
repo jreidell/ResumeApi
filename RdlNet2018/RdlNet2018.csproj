@@ -29,13 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Models\CareerInfo.cs" />
-    <Compile Include="Models\JobSkill.cs" />
-    <Compile Include="Models\WorkHistory.cs" />
-    <Compile Include="Models\WorkHistoryDetail.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -46,6 +39,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RdlNet2018.Models\RdlNet2018.Models.csproj" />
   </ItemGroup>
 
 </Project>
