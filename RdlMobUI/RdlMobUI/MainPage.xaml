@@ -3,45 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RdlMobUI"
              x:Class="RdlMobUI.MainPage">
-    <StackLayout Orientation="Vertical" Spacing="1">
-        <!-- Place new controls here -->
-        <Label Text="" 
-           HorizontalOptions="Center"
-           VerticalOptions="StartAndExpand"
-           x:Name="lblFullName" 
-           FontSize="10"
-           HorizontalTextAlignment="Center" />
-        <Label Text="" 
-           HorizontalOptions="Start"
-           x:Name="lblSummary" 
-           FontSize="8" 
-           Margin="2"
-           VerticalOptions="Start"
-           HorizontalTextAlignment="Start" BackgroundColor="Beige" />
-        <Label Text="" 
-           HorizontalOptions="Center"
-           x:Name="lblAddress" 
-           FontSize="8" 
-           Margin="2"
-           HorizontalTextAlignment="Start" />
-        <Label Text="" 
-           HorizontalOptions="Center"
-           VerticalOptions="StartAndExpand"
-           x:Name="lblContactInfo" 
-           FontSize="8" 
-           HorizontalTextAlignment="Center" />
-        <Label Text="" 
-           HorizontalOptions="Center"
-           VerticalOptions="StartAndExpand"
-           x:Name="lblResumeTitle" 
-           FontSize="6" 
-           HorizontalTextAlignment="Center" />
-        <Label Text="" 
-           HorizontalOptions="Center"
-           VerticalOptions="EndAndExpand"
-           x:Name="lblError" />
-        <Button Text="Refresh Resume Data!" 
-           x:Name="btnGetResume" 
-           Clicked="btnGetResume_Click" />
-    </StackLayout>
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+
+        <!-- HEADER BACKGROUND -->
+        <Image Aspect="AspectFill" Source="pghSL.jpg" Grid.Row="0" />
+
+        <!-- BUTTON ROW ONE -->
+        <ImageButton Aspect="AspectFill" HeightRequest="100" WidthRequest="130" HorizontalOptions="Start" Source="contactInfo.jpg" Grid.Row="1" Clicked="btnContact_Clicked" />
+        <ImageButton Aspect="AspectFill" HeightRequest="100" WidthRequest="130" HorizontalOptions="End" Source="summary.jpg" Grid.Row="1" Clicked="btnSummary_Clicked" />
+
+        <!-- BUTTON ROW TWO -->
+        <ImageButton Aspect="AspectFill" HeightRequest="100" WidthRequest="130" HorizontalOptions="Start" Source="jobSkills.jpg" Grid.Row="2" Clicked="btnJobSkills_Clicked" />
+        <ImageButton Aspect="AspectFill" HeightRequest="100" WidthRequest="130" HorizontalOptions="End" Source="workHistory.jpg" Grid.Row="2" Clicked="btnWorkHistory_Clicked" />
+
+        <!-- BUTTON ROW THREE -->
+        <ImageButton BackgroundColor="Transparent" HeightRequest="49" WidthRequest="40" HorizontalOptions="Start" TranslationX="40" Source="githubx.jpg" Grid.Row="3" Clicked="btnGitHub_Clicked" />
+        <ImageButton BackgroundColor="Transparent" HeightRequest="45" WidthRequest="45" HorizontalOptions="End" TranslationX="-40" Source="linkedin.jpg" Grid.Row="3" Clicked="btnLinkedIn_Clicked" />
+
+        <!-- BUTTON ROW FOUR - BOTTOM/STATUS BAR -->
+        <BoxView BackgroundColor="Gray" Grid.Row="4" HeightRequest="10" />
+
+        <!-- THIS IS THE PHOTOT PIC THAT FLOATS OVER T-->
+        <Image HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="End" TranslationY="50" Source="head.jpg" />
+
+    </Grid>
+
 </ContentPage>
