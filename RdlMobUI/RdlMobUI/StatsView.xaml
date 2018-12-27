@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RdlMobUI.StatsView">
+  <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblFirstNumberValue" TextColor="Chartreuse" FontSize="12" FontAttributes="Bold" Grid.Column="0" TranslationY="-5" />
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblFirstNumberText" TextColor="Chartreuse" FontSize="5" FontAttributes="Bold" Grid.Column="0" TranslationY="5" />
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblBar1" TextColor="Chartreuse" FontSize="20" FontAttributes="Bold" Grid.Column="1" TranslationY="-2" />
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblSecondNumberValue" TextColor="Chartreuse" FontSize="12" FontAttributes="Bold" Grid.Column="2" TranslationY="-5" />
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblSecondNumberText" TextColor="Chartreuse" FontSize="5" FontAttributes="Bold" Grid.Column="2" TranslationY="5" />
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblBar2" TextColor="Chartreuse" FontSize="20" FontAttributes="Bold" Grid.Column="3" TranslationY="-2" />
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblThirdNumberValue" TextColor="Chartreuse" FontSize="12" FontAttributes="Bold" Grid.Column="4" TranslationY="-5" />
+            <Label HorizontalOptions="Center" VerticalOptions="Center" x:Name="lblThirdNumberText" TextColor="Chartreuse" FontSize="5" FontAttributes="Bold" Grid.Column="4" TranslationY="5" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

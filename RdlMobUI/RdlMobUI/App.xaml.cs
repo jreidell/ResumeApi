@@ -22,6 +22,7 @@ namespace RdlMobUI
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            Application.Current.Quit();
         }
 
         protected override void OnResume()

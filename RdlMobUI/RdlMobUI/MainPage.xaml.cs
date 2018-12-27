@@ -8,23 +8,24 @@ using Xamarin.Forms;
 
 namespace RdlMobUI
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : CarouselPage
     {
         private CareerInfo _careerInfo = null;
         private string _contactInfo = string.Empty;
         private string _summary = string.Empty;
+        private string _jobSkills = string.Empty;
         private string _workHistory = string.Empty;
         private string _workHistoryDetail = string.Empty;
         private string _errorMessage = string.Empty;
 
         public MainPage()
         {
-            InitializeComponent();
             GetResumeData();
             if(!string.IsNullOrEmpty(_errorMessage))
             {
                 DisplayAlert("Error", $"{_errorMessage}", "Close");
             }
+            InitializeComponent();
         }
 
         private async void GetResumeData()
@@ -40,12 +41,15 @@ namespace RdlMobUI
                     List<CareerInfo> data = await Task.Run(() => JsonConvert.DeserializeObject<List<CareerInfo>>(response));
                     _careerInfo = data[0];
 
-                    _contactInfo = $"{_careerInfo.FirstName} {_careerInfo.MiddleName} {_careerInfo.LastName}, {_careerInfo.Suffix}\n"
-                                + $"{_careerInfo.Address1}, {_careerInfo.City}, {_careerInfo.State} {_careerInfo.PostalCode}\n"
-                                + $"{_careerInfo.EmailAddress}, {_careerInfo.Phone}, Mobile: {_careerInfo.Mobile}\n"
-                                + $"{_careerInfo.CareerInfoTitle}";
+                    svStats.TotalEmployers = _careerInfo.WorkHistory.Count.ToString();
+
+                    lblFullName.Text = $"{_careerInfo.FirstName} {_careerInfo.MiddleName} {_careerInfo.LastName}, {_careerInfo.Suffix}";
+                    lblTitle.Text = $"{_careerInfo.CareerInfoTitle}";
+                    _contactInfo = $"{_careerInfo.Address1}\n{_careerInfo.City}, {_careerInfo.State} {_careerInfo.PostalCode}\n"
+                                + $"{_careerInfo.EmailAddress}\nHome: {_careerInfo.Phone}\nMobile: {_careerInfo.Mobile}\n";
 
                     _summary = $"{_careerInfo.Summary}";
+
                 }
                 else
                 {
@@ -62,96 +66,35 @@ namespace RdlMobUI
 
         private void btnContact_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Contact Info", $"{_contactInfo}", "Close");
-            //DisplayAlert("Contact Info", "Contact Info was Clicked", "Close");
+            if(_careerInfo != null)
+                Navigation.PushModalAsync(new Contact(_careerInfo));
         }
 
         private void btnSummary_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Contact Info", $"{_summary}", "Close");
-            //DisplayAlert("Summary", "Summary was Clicked", "Close");
+            if (_careerInfo != null)
+                Navigation.PushModalAsync(new Summary(_summary));
         }
         private void btnJobSkills_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Job Skills", "Job Skills was Clicked", "Close");
+            if (_careerInfo != null)
+                Navigation.PushModalAsync(new JobSkills(_careerInfo.JobSkills));
         }
 
         private void btnWorkHistory_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Work History", "Work History was Clicked", "Close");
+            if (_careerInfo != null)
+                Navigation.PushModalAsync(new WorkHist(_careerInfo.WorkHistory));
         }
         private void btnGitHub_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("GitHub", "GitHub Button was Clicked", "Close");
+            Device.OpenUri(new Uri("https://github.com/jreidell/ResumeApi"));
         }
 
         private void btnLinkedIn_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Linked-In", "Linked-In Button was Clicked", "Close");
-        }
-
-        private async Task btnGetResume_Click(object sender, EventArgs e)
-        {
-            var url = "https://rdlsvc.azurewebsites.net/api/v1/CareerInfo?id=58f21038-a7e4-46ec-b036-08d667882bcb";
-
-            var client = new HttpClient();
-            try
-            {
-                var response = await client.GetStringAsync(url);
-                //lblText.Text = response;
-                if (!string.IsNullOrEmpty(response))
-                {
-                    List<CareerInfo> data = await Task.Run(() => JsonConvert.DeserializeObject<List<CareerInfo>>(response));
-                    _careerInfo = data[0];
-                    //await Navigation.PushAsync(new StackLayoutEx(_careerInfo));
-                    //lblFullName.Text = $"{_careerInfo.FirstName} {_careerInfo.MiddleName} {_careerInfo.LastName}, {_careerInfo.Suffix}\n"
-                    //+ $"{_careerInfo.Address1}, {_careerInfo.City}, {_careerInfo.State} {_careerInfo.PostalCode}\n"
-                    //+ $"{_careerInfo.EmailAddress}, {_careerInfo.Phone}, Mobile: {_careerInfo.Mobile}\n"
-                    //+ $"{_careerInfo.CareerInfoTitle}";
-                    //lblSummary.Text = $"{_careerInfo.Summary}";
-                }
-                else
-                {
-                    //lblError.Text = "No Data";
-                }
-            }
-            catch (Exception ex)
-            {
-                //lblError.Text = ex.Message;
-            }
-        }
-
-        private void FillResumeFields(CareerInfo careerInfo)
-        {
-            //lblFullName.Text = $"{careerInfo.FirstName} {careerInfo.MiddleName} {careerInfo.LastName}, {careerInfo.Suffix}";
-            //lblAddress.Text = $"{careerInfo.Address1}, {careerInfo.City}, {careerInfo.State} {careerInfo.PostalCode}";
-            //lblContactInfo.Text = $"{careerInfo.EmailAddress}, {careerInfo.Phone}, Mobile: {careerInfo.Mobile}";
-            //lblResumeTitle.Text = $"{careerInfo.CareerInfoTitle}";
-
-            //lblFullName.Text = $"{careerInfo.FirstName} {careerInfo.MiddleName} {careerInfo.LastName}, {careerInfo.Suffix}\n"
-            //+ $"{careerInfo.Address1}, {careerInfo.City}, {careerInfo.State} {careerInfo.PostalCode}\n"
-            //+ $"{careerInfo.EmailAddress}, {careerInfo.Phone}, Mobile: {careerInfo.Mobile}\n"
-            //+ $"{careerInfo.CareerInfoTitle}";
-            //lblSummary.Text = $"{careerInfo.Summary}";
+            Device.OpenUri(new Uri("https://www.linkedin.com/in/joereidell/"));
         }
 
     }
-
-    public class StackLayoutEx : ContentPage
-    {
-        public StackLayoutEx(CareerInfo careerInfo)
-        {
-            //var content = new StackLayout
-            //{
-            //    Children = {
-            //    new Label {Text = $"{careerInfo.FirstName} {careerInfo.MiddleName} {careerInfo.LastName}, {careerInfo.Suffix}\n"
-            //                + $"{careerInfo.Address1}, {careerInfo.City}, {careerInfo.State} {careerInfo.PostalCode}\n"
-            //                + $"{careerInfo.EmailAddress}, {careerInfo.Phone}, Mobile: {careerInfo.Mobile}\n"
-            //                + $"{careerInfo.CareerInfoTitle}"},
-            //    new Label { Text = $"{careerInfo.Summary}" }
-            //}
-            //};
-        }
-    }
-
 }

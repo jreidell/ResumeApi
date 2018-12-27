@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RdlMobUI.Contact" 
+             class="contactPage" 
+             BackgroundColor="#ed1b24">
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblTitle" Grid.Row="0" Margin="1" />
+        <Label x:Name="lblTitle2" Grid.Row="1" Margin="1, 5, 1, 1" />
+        <Label x:Name="lblFullname" Grid.Row="2" Margin="8, 0, 0, 0" />
+        <Label x:Name="lblAddress1" Grid.Row="3" Margin="8, 0, 0, 0" />
+        <Label x:Name="lblAddress2" Grid.Row="4" Margin="8, 0, 0, 0" />
+        <Label x:Name="lblEmailLabel" Grid.Row="5" Margin="1, 5, 1, 5" />
+        <Label x:Name="lblEmailAddress" Grid.Row="5" Margin="1, 5, 1, 5" TranslationX="65" />
+        <Label x:Name="lblHomePhoneLabel" Grid.Row="6"  Margin="1, 1, 1, 1" />
+        <Label x:Name="lblHomePhone" Grid.Row="6"  Margin="1, 1, 1, 1" TranslationX="35" />
+        <Label x:Name="lblMobilePhoneLabel" Grid.Row="7"  Margin="1, 5, 1, 5" />
+        <Label x:Name="lblMobilePhone" Grid.Row="7"  Margin="1, 5, 1, 5" TranslationX="35" />
+        <Label x:Name="lblMobileSMS" Grid.Row="7"  Margin="1, 5, 1, 5" TranslationX="97" />
+        <ImageButton Source="back.png" Clicked="Button_Clicked" Grid.Row="9" Aspect="AspectFill" VerticalOptions="EndAndExpand" />
+    </Grid>
+    
+</ContentPage>
