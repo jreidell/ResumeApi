@@ -45,8 +45,6 @@ namespace RdlNet2018
 
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 
-            services.AddSingleton<IWorkHistoryDetailRepository, WorkHistoryDetailRepository>();
-
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddSwaggerGen(c =>
