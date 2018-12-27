@@ -1,7 +1,7 @@
-﻿using RdlNet2018.Contracts;
+﻿using RdlNet2018.Common.Contracts;
 using RdlNet2018.Data;
 
-namespace RdlNet2018.Repos
+namespace RdlNet2018.Common.Repos
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {

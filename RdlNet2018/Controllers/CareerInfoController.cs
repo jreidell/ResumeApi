@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RdlNet2018.Contracts;
-using RdlNet2018.Models;
+using RdlNet2018.Common.Contracts;
+using RdlNet2018.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

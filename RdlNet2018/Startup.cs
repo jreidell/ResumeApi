@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RdlNet2018.Contracts;
+using RdlNet2018.Common.Contracts;
 using RdlNet2018.Data;
-using RdlNet2018.Repos;
+using RdlNet2018.Common.Repos;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 

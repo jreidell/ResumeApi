@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RdlNet2018.Models;
+﻿using RdlNet2018.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RdlNet2018.Contracts
+namespace RdlNet2018.Common.Contracts
 {
     public interface ICareerInfoRepository
     {

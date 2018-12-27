@@ -24,8 +24,6 @@
     <Compile Remove="Controllers\ContentItemsController.cs" />
     <Compile Remove="Controllers\ContentsController.cs" />
     <Compile Remove="Controllers\ValuesController.cs" />
-    <Compile Remove="Data\ContentDBContext.cs" />
-    <Compile Remove="Data\RdlNet2018DBInitializer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RdlNet2018.Models\RdlNet2018.Models.csproj" />
+    <ProjectReference Include="..\RdlNet2018.Common\RdlNet2018.Common.csproj" />
   </ItemGroup>
 
 </Project>

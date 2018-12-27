@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using RdlNet2018.Common.Contracts;
+using RdlNet2018.Common.Models;
 using RdlNet2018.Data;
-using RdlNet2018.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using RdlNet2018.Models;
 
-namespace RdlNet2018.Repos
+namespace RdlNet2018.Common.Repos
 {
     public class WorkHistoryDetailRepository : RepositoryBase<WorkHistoryDetail>, IWorkHistoryDetailRepository, IDisposable
     {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RdlNet2018.Contracts;
+using RdlNet2018.Common.Contracts;
 using RdlNet2018.Data;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace RdlNet2018.Repos
+namespace RdlNet2018.Common.Repos
 {
     /// <summary>
     /// Concreate implementation of the Repository Base Interface

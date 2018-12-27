@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RdlNet2018.Models\RdlNet2018.Models.csproj" />
+    <ProjectReference Include="..\..\RdlNet2018.Common\RdlNet2018.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

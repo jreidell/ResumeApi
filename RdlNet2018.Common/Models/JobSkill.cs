@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace RdlNet2018.Models
+namespace RdlNet2018.Common.Models
 {
     public class JobSkill
     {

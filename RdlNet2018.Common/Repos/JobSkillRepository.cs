@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RdlNet2018.Contracts;
+﻿using RdlNet2018.Common.Contracts;
+using RdlNet2018.Common.Models;
 using RdlNet2018.Data;
-using RdlNet2018.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RdlNet2018.Repos
+namespace RdlNet2018.Common.Repos
 {
     public class JobSkillRepository : RepositoryBase<JobSkill>, IJobSkillRepository, IDisposable
     {

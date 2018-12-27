@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RdlNet2018.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using RdlNet2018.Common.Models;
+
 
 namespace RdlNet2018.Data
 {

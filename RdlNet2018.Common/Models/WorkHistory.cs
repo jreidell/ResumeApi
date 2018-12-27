@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace RdlNet2018.Models
+namespace RdlNet2018.Common.Models
 {
     public class WorkHistory
     {
