@@ -18,8 +18,8 @@ Project Files:
 
 4. RdlMobUI.iOS - This is an iPhone/iOS application that displays the resume data on the iOS platform
 
-5. RdlNet2018 - This is the Resume Web API that provides a simple interface to access the database. This API provides Resume data in 
-                JSON format for consumption by the Web and Mobile applications contained within this solution.
+5. RdlNet2018 - This is the Resume Web API that provides a RESTful web interface to access the database. This API provides Resume 
+                data in JSON format for consumption by the Web and Mobile applications contained within this solution.
 
 6. RdlNet2018.Common - This project contains Resume Model Entities (POCO) that are shared between the entire solution as well as the 
                        the Interface Contracts, Database Contaxt Objects and Repository Implementation Objects (Contract/Concrete).
