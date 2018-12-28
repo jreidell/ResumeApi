@@ -12,29 +12,30 @@ namespace RdlNet2018.Controllers
     [ApiController]
     public class WorkHistoryDetailController : ControllerBase
     {
-        private IWorkHistoryRepository _repo;
+        //private IWorkHistoryRepository _repo;
+        private IRepositoryWrapper _repo;
 
-        public WorkHistoryDetailController(IWorkHistoryRepository repo)
+        public WorkHistoryDetailController(IRepositoryWrapper repo)
         {
             _repo = repo;
         }
 
-        // GET: api/v1/WorkHistory
+        // GET: api/v1/WorkHistoryDetail
         [HttpGet]
-        public async Task<IEnumerable<WorkHistory>> GetWorkHistory()
+        public async Task<IEnumerable<WorkHistoryDetail>> GetWorkHistoryDetail()
         {
-            return await _repo.GetAllWorkHistoryItemsAsync();
+            return await _repo.WorkHistoryDetail.GetAllWorkHistoryDetailItemsAsync();
         }
 
-        // GET: api/v1/WorkHistory/5
+        // GET: api/v1/WorkHistoryDetail/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetWorkHistory([FromRoute] Guid id)
+        public async Task<IActionResult> GetWorkHistoryDetail([FromRoute] Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var workHistoryDetailItems = await _repo.GetWorkHistoryByIdAsync(id);
+            var workHistoryDetailItems = await _repo.WorkHistoryDetail.GetWorkHistoryDetailByIdAsync(id);
 
             if (workHistoryDetailItems == null)
             {
@@ -44,9 +45,9 @@ namespace RdlNet2018.Controllers
             return Ok(workHistoryDetailItems);
         }
 
-        // PUT: api/v1/WorkHistory/5
+        // PUT: api/v1/WorkHistoryDetail/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutWorkHistory([FromRoute] Guid id, [FromBody] WorkHistory workHistoryDetail)
+        public async Task<IActionResult> PutWorkHistory([FromRoute] Guid id, [FromBody] WorkHistoryDetail workHistoryDetail)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +61,7 @@ namespace RdlNet2018.Controllers
 
             try
             {
-                await _repo.UpdateWorkHistoryAsync(workHistoryDetail);
+                await _repo.WorkHistoryDetail.UpdateWorkHistoryDetailAsync(workHistoryDetail);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -77,23 +78,23 @@ namespace RdlNet2018.Controllers
             return NoContent();
         }
 
-        // POST: api/v1/WorkHistory
+        // POST: api/v1/WorkHistoryDetail
         [HttpPost]
-        public async Task<IActionResult> PostWorkHistory([FromBody] WorkHistory workHistoryDetail)
+        public async Task<IActionResult> PostWorkHistory([FromBody] WorkHistoryDetail workHistoryDetail)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await _repo.CreateWorkHistoryAsync(workHistoryDetail);
+            await _repo.WorkHistoryDetail.CreateWorkHistoryDetailAsync(workHistoryDetail);
 
             return CreatedAtAction("GetWorkHistory", new { id = workHistoryDetail.WorkHistoryId }, workHistoryDetail);
         }
 
         private bool WorkHistoryExists(Guid id)
         {
-            return (_repo.GetWorkHistoryByIdAsync(id) != null);
+            return (_repo.WorkHistoryDetail.GetWorkHistoryDetailByIdAsync(id) != null);
         }
     }
 }

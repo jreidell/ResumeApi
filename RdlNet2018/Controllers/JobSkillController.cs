@@ -12,9 +12,10 @@ namespace RdlNet2018.Controllers
     [ApiController]
     public class JobSkillController : ControllerBase
     {
-        private IJobSkillRepository _repo;
+        //private IJobSkillRepository _repo;
+        private IRepositoryWrapper _repo;
 
-        public JobSkillController(IJobSkillRepository repo)
+        public JobSkillController(IRepositoryWrapper repo)
         {
             _repo = repo;
         }
@@ -23,7 +24,7 @@ namespace RdlNet2018.Controllers
         [HttpGet]
         public async Task<IEnumerable<JobSkill>> GetJobSkill()
         {
-            return await _repo.GetAllJobSkillItemsAsync();
+            return await _repo.JobSkill.GetAllJobSkillItemsAsync();
         }
 
         // GET: api/v1/JobSkill/5
@@ -34,7 +35,7 @@ namespace RdlNet2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var jobSkillItems = await _repo.GetJobSkillByIdAsync(id);
+            var jobSkillItems = await _repo.JobSkill.GetJobSkillByIdAsync(id);
 
             if (jobSkillItems == null)
             {
@@ -60,7 +61,7 @@ namespace RdlNet2018.Controllers
 
             try
             {
-                await _repo.UpdateJobSkillAsync(jobSkill);
+                await _repo.JobSkill.UpdateJobSkillAsync(jobSkill);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,14 +87,14 @@ namespace RdlNet2018.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _repo.CreateJobSkillAsync(jobSkill);
+            await _repo.JobSkill.CreateJobSkillAsync(jobSkill);
 
             return CreatedAtAction("GetJobSkill", new { id = jobSkill.JobSkillId }, jobSkill);
         }
 
         private bool JobSkillExists(Guid id)
         {
-            return (_repo.GetJobSkillByIdAsync(id) != null);
+            return (_repo.JobSkill.GetJobSkillByIdAsync(id) != null);
         }
     }
 }

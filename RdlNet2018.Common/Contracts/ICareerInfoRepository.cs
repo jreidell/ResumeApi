@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RdlNet2018.Common.Contracts
 {
-    public interface ICareerInfoRepository
+    public interface ICareerInfoRepository : IDisposable
     {
         Task<IEnumerable<CareerInfo>> GetAllCareerInfoItemsAsync();
         Task<CareerInfo> GetCareerInfoByIdAsync(Guid careerInfoId);

@@ -12,9 +12,10 @@ namespace RdlNet2018.Controllers
     [ApiController]
     public class WorkHistoryController : ControllerBase
     {
-        private IWorkHistoryRepository _repo;
+        //private IWorkHistoryRepository _repo;
+        private IRepositoryWrapper _repo;
 
-        public WorkHistoryController(IWorkHistoryRepository repo)
+        public WorkHistoryController(IRepositoryWrapper repo)
         {
             _repo = repo;
         }
@@ -23,7 +24,7 @@ namespace RdlNet2018.Controllers
         [HttpGet]
         public async Task<IEnumerable<WorkHistory>> GetWorkHistory()
         {
-            return await _repo.GetAllWorkHistoryItemsAsync();
+            return await _repo.WorkHistory.GetAllWorkHistoryItemsAsync();
         }
 
         // GET: api/v1/WorkHistory/5
@@ -34,7 +35,7 @@ namespace RdlNet2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var workHistoryItems = await _repo.GetWorkHistoryByIdAsync(id);
+            var workHistoryItems = await _repo.WorkHistory.GetWorkHistoryByIdAsync(id);
 
             if (workHistoryItems == null)
             {
@@ -60,7 +61,7 @@ namespace RdlNet2018.Controllers
 
             try
             {
-                await _repo.UpdateWorkHistoryAsync(workHistory);
+                await _repo.WorkHistory.UpdateWorkHistoryAsync(workHistory);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,14 +87,14 @@ namespace RdlNet2018.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _repo.CreateWorkHistoryAsync(workHistory);
+            await _repo.WorkHistory.CreateWorkHistoryAsync(workHistory);
 
             return CreatedAtAction("GetWorkHistory", new { id = workHistory.WorkHistoryId }, workHistory);
         }
 
         private bool WorkHistoryExists(Guid id)
         {
-            return (_repo.GetWorkHistoryByIdAsync(id) != null);
+            return (_repo.WorkHistory.GetWorkHistoryByIdAsync(id) != null);
         }
     }
 }

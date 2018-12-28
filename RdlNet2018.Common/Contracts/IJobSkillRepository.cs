@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RdlNet2018.Common.Contracts
 {
-    public interface IJobSkillRepository
+    public interface IJobSkillRepository : IDisposable
     {
         Task<IEnumerable<JobSkill>> GetAllJobSkillItemsAsync();
         Task<JobSkill> GetJobSkillByIdAsync(Guid jobSkillId);

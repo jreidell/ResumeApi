@@ -12,9 +12,10 @@ namespace RdlNet2018.Controllers
     [ApiController]
     public class CareerInfoController : ControllerBase
     {
-        private ICareerInfoRepository _repo;
+        //private ICareerInfoRepository _repo;
+        private IRepositoryWrapper _repo;
 
-        public CareerInfoController(ICareerInfoRepository repo)
+        public CareerInfoController(IRepositoryWrapper repo)
         {
             _repo = repo;
         }
@@ -23,7 +24,7 @@ namespace RdlNet2018.Controllers
         [HttpGet]
         public async Task<IEnumerable<CareerInfo>> GetCareerInfo()
         {
-            return await _repo.GetAllCareerInfoItemsAsync();
+            return await _repo.CareerInfo.GetAllCareerInfoItemsAsync();
         }
 
         // GET: api/v1/CareerInfo/5
@@ -34,7 +35,7 @@ namespace RdlNet2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var careerInfoItems = await _repo.GetCareerInfoByIdAsync(id);
+            var careerInfoItems = await _repo.CareerInfo.GetCareerInfoByIdAsync(id);
 
             if (careerInfoItems == null)
             {
@@ -60,7 +61,7 @@ namespace RdlNet2018.Controllers
 
             try
             {
-                await _repo.UpdateCareerInfoAsync(careerInfo);
+                await _repo.CareerInfo.UpdateCareerInfoAsync(careerInfo);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,14 +87,14 @@ namespace RdlNet2018.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _repo.CreateCareerInfoAsync(careerInfo);
+            await _repo.CareerInfo.CreateCareerInfoAsync(careerInfo);
 
             return CreatedAtAction("GetCareerInfo", new { id = careerInfo.CareerInfoId }, careerInfo);
         }
 
         private bool CareerInfoExists(Guid id)
         {
-            return (_repo.GetCareerInfoByIdAsync(id) != null);
+            return (_repo.CareerInfo.GetCareerInfoByIdAsync(id) != null);
         }
     }
 }

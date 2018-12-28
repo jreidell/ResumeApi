@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RdlNet2018.Common.Contracts
 {
-    public interface IWorkHistoryRepository
+    public interface IWorkHistoryRepository : IDisposable
     {
         Task<IEnumerable<WorkHistory>> GetAllWorkHistoryItemsAsync();
         Task<WorkHistory> GetWorkHistoryByIdAsync(Guid workHistoryId);
