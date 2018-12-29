@@ -8,7 +8,7 @@ This is a Web API implementation of an entity based resume model. This is based 
 standard be-all/end-all implementation of a resume, just a playground to demostrate my capabilities and an opportunity to use real 
 world data in a real world scenario.
 
-Project Files:
+Solution Files:
 
 1. DBFiles - This is a folder that contains a simple table creation script and an ER Diagram image to show what the db schema should 
              look like upon creation.
