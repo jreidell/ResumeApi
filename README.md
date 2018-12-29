@@ -31,6 +31,6 @@ Solution Files:
 
 8. RdlWebUI - ANGULAR 5 JS APP - This is a basic web UI that hosts a description of the application components with various links 
               to demonstrated technologies and disaplys the Resume data formatted in a readable format that can be distributed and 
-              viewed on multiple platforms (web/mobile/etc.). WRITTEN USING ANGULAR JS
+              viewed on multiple platforms (web/mobile/etc.).
 
 
