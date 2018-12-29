@@ -52,7 +52,7 @@ namespace RdlMobUI
             ftEmailLabel.Spans.Add(new Span { Text = $"Email Address: ", ForegroundColor = Color.FromHex("ffffff"), FontSize = 9, FontAttributes = FontAttributes.Bold });
             lblEmailLabel.FormattedText = ftEmailLabel;
 
-            ftEmailAddress.Spans.Add(new Span { Text = $"{_careerInfo.EmailAddress}", ForegroundColor = Color.Blue, FontSize = 9, FontAttributes = FontAttributes.Bold, TextDecorations = TextDecorations.Underline });
+            ftEmailAddress.Spans.Add(new Span { Text = $"{_careerInfo.EmailAddress}", ForegroundColor = Color.FromHex("9ad9ea"), FontSize = 9, FontAttributes = FontAttributes.Bold, TextDecorations = TextDecorations.Underline });
             lblEmailAddress.FormattedText = ftEmailAddress;
 
             var tapGestureRecognizer = new TapGestureRecognizer();
@@ -85,7 +85,7 @@ namespace RdlMobUI
             };
             lblMobilePhone.GestureRecognizers.Add(tapGestureRecognizerMob);
 
-            ftMobileSMS.Spans.Add(new Span { Text = $"(Send SMS/Text Msg)", ForegroundColor = Color.Blue, FontSize = 8, FontAttributes = FontAttributes.Bold, TextDecorations = TextDecorations.Underline });
+            ftMobileSMS.Spans.Add(new Span { Text = $"(Send SMS/Text Msg)", ForegroundColor = Color.FromHex("9ad9ea"), FontSize = 8, FontAttributes = FontAttributes.Bold, TextDecorations = TextDecorations.Underline });
             lblMobileSMS.FormattedText = ftMobileSMS;
 
             var tapGestureRecognizerSMS = new TapGestureRecognizer();

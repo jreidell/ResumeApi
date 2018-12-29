@@ -15,22 +15,22 @@
             </Grid.RowDefinitions>
 
             <!-- HEADER BACKGROUND -->
-            <Image Aspect="AspectFill" Source="pghSL.jpg" Grid.Row="0" />
+            <Image Aspect="AspectFill" Source="pghSL.png" Grid.Row="0" />
 
             <!-- WHITE ROW -->
             <BoxView BackgroundColor="WHITE" Grid.Row="1" HeightRequest="55" />
 
             <!-- BUTTON ROW ONE -->
-            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="Start" Source="contactInfo.jpg" Grid.Row="2" Clicked="btnContact_Clicked" />
-            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="End" Source="summary.jpg" Grid.Row="2" Clicked="btnSummary_Clicked" />
+            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="Start" Source="contactInfo.png" Grid.Row="2" Clicked="btnContact_Clicked" />
+            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="End" Source="summary.png" Grid.Row="2" Clicked="btnSummary_Clicked" />
 
             <!-- BUTTON ROW TWO -->
-            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="Start" Source="jobSkills.jpg" Grid.Row="3" Clicked="btnJobSkills_Clicked" />
-            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="End" Source="workHistory.jpg" Grid.Row="3" Clicked="btnWorkHistory_Clicked" />
+            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="Start" Source="jobSkills.png" Grid.Row="3" Clicked="btnJobSkills_Clicked" />
+            <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="End" Source="workHistory.png" Grid.Row="3" Clicked="btnWorkHistory_Clicked" />
 
             <!-- BUTTON ROW THREE -->
-            <ImageButton BackgroundColor="Transparent" HeightRequest="49" WidthRequest="40" HorizontalOptions="Start" TranslationX="40" Source="githubx.jpg" Grid.Row="4" Clicked="btnGitHub_Clicked" />
-            <ImageButton BackgroundColor="Transparent" HeightRequest="45" WidthRequest="45" HorizontalOptions="End" TranslationX="-40" Source="linkedin.jpg" Grid.Row="4" Clicked="btnLinkedIn_Clicked" />
+            <ImageButton BackgroundColor="Transparent" HeightRequest="49" WidthRequest="40" HorizontalOptions="Start" TranslationX="40" Source="github.png" Grid.Row="4" Clicked="btnGitHub_Clicked" />
+            <ImageButton BackgroundColor="Transparent" HeightRequest="45" WidthRequest="45" HorizontalOptions="End" TranslationX="-40" Source="linkedin.png" Grid.Row="4" Clicked="btnLinkedIn_Clicked" />
 
             <!-- BUTTON ROW FOUR - BOTTOM/STATUS BAR -->
             <BoxView BackgroundColor="Gray" Grid.Row="5" HeightRequest="10" />

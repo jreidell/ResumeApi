@@ -2388,7 +2388,7 @@ namespace RdlMobUI.Droid
 			public const int design_snackbar_background = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int githubx = 2130837597;
+			public const int github = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
 			public const int ic_audiotrack_dark = 2130837598;
