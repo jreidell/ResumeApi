@@ -266,3 +266,4 @@ __pycache__/
 /RdlNet2018/appsettings.Development.json
 /RdlWebUI/appsettings.Development.json
 /RdlWebUI/appsettings.json
+/RdlNetReact/ClientApp/package-lock.json
