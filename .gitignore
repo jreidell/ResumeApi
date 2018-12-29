@@ -261,10 +261,13 @@ __pycache__/
 *.pyc
 /archive
 /RXapp
-/RdlWebUI/ClientApp/package-lock.json
-/RdlWebUI/ClientApp/package.json
 /RdlNet2018/appsettings.json
 /RdlNet2018/appsettings.Development.json
+/RdlWebUI/ClientApp/package-lock.json
+/RdlWebUI/ClientApp/package.json
+/RdlWebUI/package.json
+/RdlWebUI/package-lock.json
 /RdlWebUI/appsettings.Development.json
 /RdlWebUI/appsettings.json
 /RdlNetReact/ClientApp/package-lock.json
+/RdlNetReact/ClientApp/package.json
