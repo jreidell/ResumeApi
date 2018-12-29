@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
 
             <!-- HEADER BACKGROUND -->
-            <Image Aspect="AspectFill" Source="pghSL.png" Grid.Row="0" />
+            <Image Aspect="AspectFill" Source="pghSL.png" HeightRequest="125" Grid.Row="0" />
 
             <!-- WHITE ROW -->
             <BoxView BackgroundColor="WHITE" Grid.Row="1" HeightRequest="55" />
@@ -29,15 +29,16 @@
             <ImageButton Aspect="AspectFill" HeightRequest="70" WidthRequest="128" HorizontalOptions="End" Source="workHistory.png" Grid.Row="3" Clicked="btnWorkHistory_Clicked" />
 
             <!-- BUTTON ROW THREE -->
-            <ImageButton BackgroundColor="Transparent" HeightRequest="49" WidthRequest="40" HorizontalOptions="Start" TranslationX="40" Source="github.png" Grid.Row="4" Clicked="btnGitHub_Clicked" />
-            <ImageButton BackgroundColor="Transparent" HeightRequest="45" WidthRequest="45" HorizontalOptions="End" TranslationX="-40" Source="linkedin.png" Grid.Row="4" Clicked="btnLinkedIn_Clicked" />
+            <BoxView BackgroundColor="WHITE" Grid.Row="4" />
+            <ImageButton BackgroundColor="Transparent" HeightRequest="47" WidthRequest="38" Aspect="AspectFit" HorizontalOptions="Start" TranslationX="40" Source="github.png" Grid.Row="4" Clicked="btnGitHub_Clicked" />
+            <ImageButton BackgroundColor="Transparent" HeightRequest="45" WidthRequest="45" Aspect="AspectFit" HorizontalOptions="End" TranslationX="-40" Source="linkedin.png" Grid.Row="4" Clicked="btnLinkedIn_Clicked" />
 
             <!-- BUTTON ROW FOUR - BOTTOM/STATUS BAR -->
             <BoxView BackgroundColor="Gray" Grid.Row="5" HeightRequest="10" />
 
             <!-- THIS IS THE FLOATING CONTENT -->
             <Label Text="" x:Name="lblTitle" HorizontalOptions="Center" VerticalOptions="Start" TextColor="White" FontSize="10" FontAttributes="Bold" Grid.Row="0" />
-            <Label Text="" x:Name="lblFullName" HorizontalOptions="Center" VerticalOptions="Start" TextColor="White" FontSize="10" FontAttributes="Bold" TranslationY="80" />
+            <Label Text="" x:Name="lblFullName" HorizontalOptions="Center" VerticalOptions="Start" TextColor="White" FontSize="10" FontAttributes="Bold" TranslationY="83" />
 
             <ctrl:StatsView x:Name="svStats" HorizontalOptions="Center" VerticalOptions="End" Grid.Row="1" />
 
