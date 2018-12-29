@@ -61,7 +61,7 @@ export class ResView extends Component {
 
     render() {
         let contents = this.state.loading
-            ? <p><em>Loading...</em></p>
+            ? <p><em>Loading Web API Data...</em></p>
             : ResView.renderResumeDiv(this.state.careerInfos);
 
         return (
