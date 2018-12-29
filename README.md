@@ -24,8 +24,12 @@ Project Files:
 6. RdlNet2018.Common - This project contains Resume Model Entities (POCO) that are shared between the entire solution as well as the 
                        the Interface Contracts, Database Contaxt Objects and Repository Implementation Objects (Contract/Concrete).
 
-7. RdlWebUI - This is a basic web UI that hosts a description of the application components with various links to demonstrated 
-              technologies and disaplys the Resume data formatted in a readable format that can be distributed and viewed on 
-              multiple platforms (web/mobile/etc.)
+7. RdlNetReact - REACT JS APP - This is a basic web UI that hosts a description of the application components with various links
+                 to demonstrated technologies and disaplys the Resume data formatted in a readable format that can be distributed 
+                 and viewed on multiple platforms (web/mobile/etc.)
+
+8. RdlWebUI - ANGULAR 5 JS APP - This is a basic web UI that hosts a description of the application components with various links 
+              to demonstrated technologies and disaplys the Resume data formatted in a readable format that can be distributed and 
+              viewed on multiple platforms (web/mobile/etc.). WRITTEN USING ANGULAR JS
 
 
