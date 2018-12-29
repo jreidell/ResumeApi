@@ -1,7 +1,8 @@
 # ResumeApi - from Reidell.net
-A demo application of an async repository pattern, aspnet core, web api, angular resume viewer and database schema
-
-This project is an example of some technologies and development/design patterns that I have used as part of  my particular skill set. 
+A demo application of an async repository pattern, aspnet core, RESTful web api that provides access to a MSSQL database schema 
+representation of a Resume. The User Interface applications used to view this data view the RESTful web api are implemented using 
+angular, react, android, iPhone and UWP. All of these UIs can be used to view thedata via different "resume viewers". These are 
+represented as a series of pages, components, fragments, modules, models and markup languages in various flavors of applications.
 
 This is a Web API implementation of an entity based resume model. This is based on my personal resume and is not intended to be a 
 standard be-all/end-all implementation of a resume, just a playground to demostrate my capabilities and an opportunity to use real 
