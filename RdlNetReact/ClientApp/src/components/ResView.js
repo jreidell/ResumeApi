@@ -8,7 +8,11 @@ export class ResView extends Component {
         super(props);
         this.state = { careerInfos: [], loading: true };
 
-        fetch('https://rdlsvc.azurewebsites.net/api/v1/CareerInfo?id=58f21038-a7e4-46ec-b036-08d667882bcb')
+        //MICROSERVICE URL
+        //https://localhost:8304/api/v1/CareerInfo?id=21a61a6a-6554-4e7f-a974-08d663d5d19f
+        //https://rdlsvc.azurewebsites.net/api/v1/CareerInfo?id=58f21038-a7e4-46ec-b036-08d667882bcb
+
+        fetch('https://localhost:8304/api/v1/CareerInfo?id=21a61a6a-6554-4e7f-a974-08d663d5d19f')
             .then(response => response.json())
             .then(data => {
                 this.setState({ careerInfos: data, loading: false });

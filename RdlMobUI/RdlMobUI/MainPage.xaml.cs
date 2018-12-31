@@ -30,6 +30,7 @@ namespace RdlMobUI
 
         private async void GetResumeData()
         {
+            //AZURE URL
             var url = "https://rdlsvc.azurewebsites.net/api/v1/CareerInfo?id=58f21038-a7e4-46ec-b036-08d667882bcb";
 
             var client = new HttpClient();
