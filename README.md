@@ -28,9 +28,15 @@ Solution Files:
 7. RdlNetReact - REACT JS APP - This is a basic web UI that hosts a description of the application components with various links
                  to demonstrated technologies and disaplys the Resume data formatted in a readable format that can be distributed 
                  and viewed on multiple platforms (web/mobile/etc.)
+                 
+8. RdlNetSvc - This is a Microservice Implementation of the Resume Web API that provides a RESTful web interface to access the 
+               database. This API provides Resume data in JSON format for consumption by the Web and Mobile applications contained 
+               within this solution. This Reliable Service will run in an Azure Service Fabric/Clustered Environment.
 
-8. RdlWebUI - ANGULAR 5 JS APP - This is a basic web UI that hosts a description of the application components with various links 
-              to demonstrated technologies and disaplys the Resume data formatted in a readable format that can be distributed and 
-              viewed on multiple platforms (web/mobile/etc.).
+9. RdlNetSvcApp - This is a Microservice Configuration of the Resume Web API served by RdlNetSvc.
+
+10. RdlWebUI - ANGULAR 5 JS APP - This is a basic web UI that hosts a description of the application components with various links 
+               to demonstrated technologies and disaplys the Resume data formatted in a readable format that can be distributed and 
+               viewed on multiple platforms (web/mobile/etc.).
 
 
