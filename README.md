@@ -1,5 +1,5 @@
 # ResumeApi - from Reidell.net
-** NOTE: THIS IS A WORK IN PROGRESS AND SHOULD NOT BE CONSIDERED A COMPLETE SOLUTION IN ANY WAY< SHAPE OR FORM! **
+** NOTE: THIS IS A WORK IN PROGRESS AND SHOULD NOT BE CONSIDERED A COMPLETE SOLUTION! MULTIPLE UPDATES ARE BEING WORKED ON VIA LOCAL BRANCHES. THOSE BRANCHES WILL BE INCORPORATED INTO THE MASTER AS THEY ARE FULLY REALIZED OR AT LEAST DEEMED TO BE STABLE ENOUGH FOR PUBLIC REVIEW **
 
 A demo application of an async repository pattern, aspnet core, RESTful web api that provides access to a MSSQL database schema 
 representation of a Resume. The User Interface applications used to view this data view the RESTful web api are implemented using 
