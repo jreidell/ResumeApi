@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RdlNetSvc.Common.Contracts;
 using RdlNetSvc.Common.Models;
@@ -10,6 +11,7 @@ namespace RdlNetSvc.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize]
     public class CareerInfoController : ControllerBase
     {
         //private ICareerInfoRepository _repo;

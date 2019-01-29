@@ -8,6 +8,7 @@ namespace RdlNetSvc.Common.Contracts
         IJobSkillRepository JobSkill { get; }
         IWorkHistoryRepository WorkHistory { get; }
         IWorkHistoryDetailRepository WorkHistoryDetail { get; }
+        IAuthUserRepository AuthUser { get; }
         void Save();
 
     }

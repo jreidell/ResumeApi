@@ -22,6 +22,8 @@
       <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value=""/>
       <EnvironmentVariable Name="Data:ConnectionStrings:DefaultConnection" Value=""/>
       <EnvironmentVariable Name="DisableSwagger" Value=""/>
+      <EnvironmentVariable Name="Auth0:Authority" Value=""/>
+      <EnvironmentVariable Name="Auth0:Audience" Value=""/>
     </EnvironmentVariables>
   </CodePackage>
 

@@ -8,6 +8,7 @@ namespace RdlNet2018.Common.Contracts
         IJobSkillRepository JobSkill { get; }
         IWorkHistoryRepository WorkHistory { get; }
         IWorkHistoryDetailRepository WorkHistoryDetail { get; }
+        IAuthUserRepository AuthUser { get; }
         void Save();
 
     }

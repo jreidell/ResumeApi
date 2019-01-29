@@ -11,6 +11,7 @@ using RdlNet2018.Data;
 using RdlNet2018.Common.Repos;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace RdlNet2018
 {
@@ -26,6 +27,24 @@ namespace RdlNet2018
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // Add service and create Policy with options
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyOrigin(); });
+            //});
+
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //}).AddJwtBearer(options =>
+            //{
+            //    options.Authority = Configuration["Auth0:Authority"];
+            //    options.Audience = Configuration["Auth0:Audience"];
+            //    //options.RequireHttpsMetadata = false;
+            //});
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Add EF services to the services container.
@@ -58,6 +77,7 @@ namespace RdlNet2018
                     Contact = new Contact() { Name = "Reidell.net 2018 - RdlNet2018 Web API", Email = "joe@reidell.net", Url = "reidell.net" }
                 });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +92,10 @@ namespace RdlNet2018
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            //app.UseAuthentication();
+
+            //app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
             app.UseMvc();

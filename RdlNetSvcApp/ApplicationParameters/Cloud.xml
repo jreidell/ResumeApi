@@ -4,5 +4,7 @@
     <Parameter Name="RdlNetSvc_InstanceCount" Value="-1" />
     <Parameter Name="Data:ConnectionStrings:DefaultConnection" Value="Server=.\\SQLEXPRESS;Database=RDL2018;Trusted_Connection=True;" />
     <Parameter Name="DisableSwagger" Value="false" />
+    <Parameter Name="Auth0:Authority" Value="https://rdlnettesta0.auth0.com" />
+    <Parameter Name="Auth0:Audience" Value="https://rdlnettesta0.auth0.com/api/v2/" />
   </Parameters>
 </Application>

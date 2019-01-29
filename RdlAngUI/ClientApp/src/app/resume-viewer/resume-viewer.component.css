@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+    body {
+      font-size: 8pt;
+    }
+
+    .empListing {
+      list-style-type: none;
+      font-size: 11pt;
+    }
+
+    .jobTitle {
+      font-weight: bold;
+      list-style-type: none;
+      font-size: 9pt;
+      margin-top: 2mm;
+      margin-bottom: 2mm;
+    }
+
+    .jobDescription {
+      list-style-type: none;
+      font-size: 8pt;
+    }
+
+    .workHistoryDetail {
+      list-style-type: square;
+      font-size: 8pt;
+      margin-top: 2mm;
+      margin-bottom: 1mm;
+    }
+
+    .noDotLi {
+      list-style-type: none;
+      font-size: 8pt;
+      margin-top: 2mm;
+      margin-bottom: 5mm;
+    }
+
+    #resumeContent {
+      margin-top: 1.5cm;
+      margin-left: 1cm;
+      margin-right: 1cm;
+    }
+
+    #progressDiv {
+      margin-top: 1.5cm;
+    }
+
+    #limheight {
+      /*min-height: 300px;*/
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3; /*3 is just placeholder -- can be anything*/
+      font-size: 7pt;
+    }
+
+      #limheight li {
+        list-style-type: circle;
+        padding-bottom: 5px;
+        margin-right: 5mm;
+        margin-left: 5mm;
+      }
+
+        #limheight li a {
+          color: rgb(0, 162, 232);
+        }
+
+h2 {
+  text-align: center;
+  font-size: 30pt;
+  margin-top: 0mm;
+  margin-bottom: 2mm;
+}
+
+h4 {
+  text-align: center;
+  font-size: 18pt;
+  margin-top: 0mm;
+  margin-bottom: 2mm;
+}
+
+h6 {
+  text-align: center;
+  font-size: 12pt;
+  margin-top: 0mm;
+  margin-bottom: 2mm;
+}
+
+@media (min-width: 768px) {
+  #resumeContent {
+    margin-top: .25cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+  }
+
+  #progressDiv {
+    margin-top: .25cm;
+  }
+
+  #limheight {
+    /*min-height: 300px;*/
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3; /*3 is just placeholder -- can be anything*/
+    font-size: 9pt;
+  }
+
+    #limheight li {
+      list-style-type: circle;
+      padding-bottom: 5px;
+      margin-right: 5mm;
+      margin-left: 5mm;
+    }
+
+      #limheight li a {
+        color: rgb(0, 162, 232);
+      }
+
+}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +41,17 @@ namespace RdlNetSvc
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
+            });
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = Environment.GetEnvironmentVariable("Auth0:Authority");
+                options.Audience = Environment.GetEnvironmentVariable("Auth0:Audience");
+                //options.RequireHttpsMetadata = false;
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -88,6 +100,8 @@ namespace RdlNetSvc
             {
                 app.UseHsts();
             }
+
+            app.UseAuthentication();
 
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();

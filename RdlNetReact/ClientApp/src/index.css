@@ -43,12 +43,12 @@
     color: rgb(0, 162, 232);
 }
 
-#jobTitleSpacer li {
+.jobTitleSpacer li {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-#jobDetailSpacer li {
+.jobDetailSpacer li {
     margin-top: 10px;
     margin-bottom: 10px;
 }

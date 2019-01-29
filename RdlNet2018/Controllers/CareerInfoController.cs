@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RdlNet2018.Common.Contracts;
 using RdlNet2018.Common.Models;
@@ -12,7 +13,6 @@ namespace RdlNet2018.Controllers
     [ApiController]
     public class CareerInfoController : ControllerBase
     {
-        //private ICareerInfoRepository _repo;
         private IRepositoryWrapper _repo;
 
         public CareerInfoController(IRepositoryWrapper repo)

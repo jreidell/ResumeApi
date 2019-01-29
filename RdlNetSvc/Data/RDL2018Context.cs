@@ -15,5 +15,6 @@ namespace RdlNetSvc.Data
         public DbSet<JobSkill> JobSkill { get; set; }
         public DbSet<WorkHistory> WorkHistory { get; set; }
         public DbSet<WorkHistoryDetail> WorkHistoryDetail { get; set; }
+        public DbSet<AuthUser> AuthUser { get; set; }
     }
 }

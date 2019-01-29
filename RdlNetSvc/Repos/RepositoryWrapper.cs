@@ -12,6 +12,7 @@ namespace RdlNetSvc.Common.Repos
         private IJobSkillRepository _jobSkill;
         private IWorkHistoryRepository _workHistory;
         private IWorkHistoryDetailRepository _workHistoryDetail;
+        private IAuthUserRepository _authUser;
 
         public ICareerInfoRepository CareerInfo
         {
@@ -64,6 +65,19 @@ namespace RdlNetSvc.Common.Repos
                 }
 
                 return _workHistoryDetail;
+            }
+        }
+
+        public IAuthUserRepository AuthUser
+        {
+            get
+            {
+                if (_authUser == null)
+                {
+                    _authUser = new AuthUserRepository(_context);
+                }
+
+                return _authUser;
             }
         }
 

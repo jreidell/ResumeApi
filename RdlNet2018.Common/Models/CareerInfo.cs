@@ -7,7 +7,7 @@ namespace RdlNet2018.Common.Models
     public class CareerInfo
     {
         [JsonProperty("CareerInfoId")]
-        public Guid CareerInfoId { get; set; }
+        public Guid? CareerInfoId { get; set; }
 
         [JsonProperty("FirstName")]
         public string FirstName { get; set; }

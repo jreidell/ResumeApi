@@ -32,9 +32,33 @@ namespace RdlNet2018.Common.Repos
 
         public async Task<CareerInfo> GetCareerInfoByIdAsync(Guid careerInfoId)
         {
+
+            //return await _context.CareerInfo
+            //    .Include(s => s.JobSkills)
+            //    .Include(w => w.WorkHistory)
+            //        .ThenInclude(d => d.WorkHistoryDetails)
+            //    .AsNoTracking()
+            //    .FirstOrDefault();
+            //.Where(c => c.CareerInfoId.Equals(careerInfoId)).
+
+            return await _context.CareerInfo
+    .Include(s => s.JobSkills)
+    .Include(w => w.WorkHistory)
+        .ThenInclude(d => d.WorkHistoryDetails)
+    .AsNoTracking()
+    .ToListAsync();
+
+
             var careerInfo = await GetWhereExpressionAsync(o => o.CareerInfoId.Equals(careerInfoId));
-            return careerInfo.DefaultIfEmpty(new CareerInfo())
-                    .FirstOrDefault();
+            var returner = careerInfo.DefaultIfEmpty(new CareerInfo())
+                .Join(_context.JobSkill, ci => ci.CareerInfoId, js => js.JobSkillId, (ci, js) => new { CareerInfo = ci, JobSkill = js })
+                .Join(_context.WorkHistory, ci => ci.CareerInfo.CareerInfoId, wh => wh.WorkHistoryId, (ci, wh) => new { CareerInfo = ci, WorkHistory = wh })
+                .Join(_context.WorkHistoryDetail, wh => wh.WorkHistory.WorkHistoryId, whd => whd.WorkHistoryDetailId, (wh, whd) => new { WorkHistory = wh, WorkHistoryDetail = whd }).FirstOrDefault();
+            return returner;
+
+            //var careerInfo = await GetWhereExpressionAsync(o => o.CareerInfoId.Equals(careerInfoId));
+            //return careerInfo.DefaultIfEmpty(new CareerInfo())
+            //        .FirstOrDefault();
         }
 
         public async Task CreateCareerInfoAsync(CareerInfo careerInfo)

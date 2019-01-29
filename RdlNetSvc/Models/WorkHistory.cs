@@ -6,7 +6,7 @@ namespace RdlNetSvc.Common.Models
 {
     public class WorkHistory
     {
-        [JsonProperty("WorkHidistoryId")]
+        [JsonProperty("WorkHistoryId")]
         public Guid WorkHistoryId { get; set; }
 
         [JsonProperty("CareerInfoId")]

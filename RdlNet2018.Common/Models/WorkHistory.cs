@@ -6,8 +6,8 @@ namespace RdlNet2018.Common.Models
 {
     public class WorkHistory
     {
-        [JsonProperty("WorkHidistoryId")]
-        public Guid WorkHistoryId { get; set; }
+        [JsonProperty("WorkHistoryId")]
+        public Guid? WorkHistoryId { get; set; }
 
         [JsonProperty("CareerInfoId")]
         public Guid CareerInfoId { get; set; }
