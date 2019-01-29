@@ -15,6 +15,10 @@ Solution Files:
 1. DBFiles - This is a folder that contains a simple table creation script and an ER Diagram image to show what the db schema should 
              look like upon creation.
 
+2. RdlAngUI - ANGULAR 6 JS APP - This is a basic web UI that hosts a description of the application components with various links 
+               to demonstrated technologies and disaplys the Resume data formatted in a readable format that can be distributed and 
+               viewed on multiple platforms (web/mobile/etc.). This is a more stable and structured project and application.
+
 2. RdlMobUI - This is a Xamarin Forms library that is shared between the Android and iOS projects.
 
 3. RdlMobUI.Android - This is an Android application that displays the resume data on the Android platform.
