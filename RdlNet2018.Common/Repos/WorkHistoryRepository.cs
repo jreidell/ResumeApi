@@ -20,20 +20,17 @@ namespace RdlNet2018.Common.Repos
 
         public async Task<IEnumerable<WorkHistory>> GetAllWorkHistoryItemsAsync()
         {
-            //var workHistoryItems = await GetAllAsync();
-            //return workHistoryItems;
             return await _context.WorkHistory
                             .Include(d => d.WorkHistoryDetails)
                             .AsNoTracking()
                             .ToListAsync();
-
         }
 
         public async Task<WorkHistory> GetWorkHistoryByIdAsync(Guid workHistoryId)
         {
-            var workHistory = await GetWhereExpressionAsync(o => o.WorkHistoryId.Equals(workHistoryId));
-            return workHistory.DefaultIfEmpty(new WorkHistory())
-                    .FirstOrDefault();
+            return await Task.Run(() => _context.WorkHistory
+                .Where(o => o.WorkHistoryId.Equals(workHistoryId))
+                .Include(d => d.WorkHistoryDetails).FirstOrDefault());
         }
 
         public async Task CreateWorkHistoryAsync(WorkHistory workHistory)
