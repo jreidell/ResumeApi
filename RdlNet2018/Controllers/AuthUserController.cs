@@ -114,5 +114,18 @@ namespace RdlNet2018.Controllers
         {
             return (_repo.AuthUser.GetAuthUserByIdAsync(id) != null);
         }
+
+        /// <summary>
+        /// Get Token
+        /// </summary>
+        /// <returns>Token String</returns>
+        // GET: api/v1/AuthUser
+        [HttpGet]
+        [Route("GetToken")]
+        public async Task<string> GetToken()
+        {
+            return await _repo.AuthUser.GetToken();
+        }
+
     }
 }

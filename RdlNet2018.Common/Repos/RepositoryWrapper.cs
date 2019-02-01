@@ -1,4 +1,5 @@
-﻿using RdlNet2018.Common.Contracts;
+﻿using Microsoft.Extensions.Configuration;
+using RdlNet2018.Common.Contracts;
 using RdlNet2018.Data;
 using System;
 

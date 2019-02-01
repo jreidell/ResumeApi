@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RdlNet2018.Common.Contracts;
 using RdlNet2018.Common.Models;
 using RdlNet2018.Data;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RdlNet2018.Common.Repos
@@ -54,6 +56,35 @@ namespace RdlNet2018.Common.Repos
         {
             Update(authUser);
             await SaveDataAsync();
+        }
+
+        public async Task<string> GetToken()
+        {
+
+            // CHECK THE ENVIRONMENT. IF WE ARE LOCAL TO DEV, GET SECRET VARS FROM MACHINE ELSE USE PROCESS (AZURE)
+            EnvironmentVariableTarget envTarget = EnvironmentVariableTarget.Process;
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", envTarget).Equals("Development", StringComparison.InvariantCultureIgnoreCase))
+            {
+                envTarget = EnvironmentVariableTarget.Machine;
+            }
+
+            var client_id = Environment.GetEnvironmentVariable("rdn_Client_id", envTarget);
+            var client_secret = Environment.GetEnvironmentVariable("rdn_Client_secret", envTarget);
+            var audience = Environment.GetEnvironmentVariable("rdn_Audience", envTarget);
+            var grant_type = Environment.GetEnvironmentVariable("rdn_Grant_type", envTarget);
+            var UrlNoTrailingSlash = Environment.GetEnvironmentVariable("rdn_UrlNoTrailingSlash", envTarget);
+
+            var client = new RestClient($"{UrlNoTrailingSlash}/oauth/token");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("cache-control", "no-cache");
+            request.AddHeader("content-type", "application/json");
+            request.AddJsonBody($"{{ \"client_id\":\"{client_id}\",\"client_secret\":\"{ client_secret}\",\"audience\":\"{audience}\",\"grant_type\":\"{grant_type}\" }}");
+            IRestResponse response = client.Execute(request);
+            JObject token = JObject.Parse(response.Content);
+
+            return await Task.Run(() =>
+                (string)token["access_token"]
+            );
         }
 
         protected void Dispose(bool disposing)

@@ -7,11 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RdlNet2018.Common.Contracts;
-using RdlNet2018.Data;
 using RdlNet2018.Common.Repos;
+using RdlNet2018.Data;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace RdlNet2018
 {
