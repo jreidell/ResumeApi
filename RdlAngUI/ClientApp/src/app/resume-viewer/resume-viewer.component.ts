@@ -13,7 +13,7 @@ export class ResumeViewerComponent implements OnInit {
   title = 'Reidell.net - Angular v6 Resume Viewer';
   public resumes;
   public noData = true;
-  public millisecondsToWait = 4000;
+  public millisecondsToWait = 1500;
 
   constructor(private svc: ResumeService, private auth: AuthService, private globals: Globals) { }
 
