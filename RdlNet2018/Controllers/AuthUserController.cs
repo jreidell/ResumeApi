@@ -122,7 +122,7 @@ namespace RdlNet2018.Controllers
         // GET: api/v1/AuthUser
         [HttpGet]
         [Route("GetToken")]
-        public async Task<string> GetToken()
+        public async Task<TokenData> GetToken()
         {
             return await _repo.AuthUser.GetToken();
         }

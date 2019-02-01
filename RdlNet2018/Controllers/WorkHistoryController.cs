@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RdlNet2018.Common.Contracts;
 using RdlNet2018.Common.Models;
@@ -10,6 +11,7 @@ namespace RdlNet2018.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize]
     public class WorkHistoryController : ControllerBase
     {
         //private IWorkHistoryRepository _repo;

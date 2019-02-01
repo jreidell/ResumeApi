@@ -13,6 +13,6 @@ namespace RdlNet2018.Common.Contracts
         Task CreateAuthUserAsync(AuthUser careerInfo);
         Task UpdateAuthUserAsync(AuthUser careerInfo);
         Task DeleteAuthUserAsync(AuthUser careerInfo);
-        Task<string> GetToken();
+        Task<TokenData> GetToken();
     }
 }

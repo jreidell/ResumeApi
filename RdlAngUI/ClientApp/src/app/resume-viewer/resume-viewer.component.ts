@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ResumeService } from '../_services';
+import { ResumeService, AuthService } from '../_services';
 import { delay } from 'q';
+import { Globals } from '../_models';
 
 @Component({
   selector: 'app-resume-viewer',
@@ -14,10 +15,10 @@ export class ResumeViewerComponent implements OnInit {
   public noData = true;
   public millisecondsToWait = 4000;
 
-  constructor(private svc: ResumeService) { }
+  constructor(private svc: ResumeService, private auth: AuthService, private globals: Globals) { }
 
   async getResumeData() {
-    //58f21038-a7e4-46ec-b036-08d667882bcb
+    // 58f21038-a7e4-46ec-b036-08d667882bcb
     await delay(this.millisecondsToWait);
     this.svc.getResumeData('').subscribe(
       data => { this.resumes = data; this.noData = false; },

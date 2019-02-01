@@ -58,7 +58,7 @@ namespace RdlNet2018.Common.Repos
             await SaveDataAsync();
         }
 
-        public async Task<string> GetToken()
+        public async Task<TokenData> GetToken()
         {
 
             // CHECK THE ENVIRONMENT. IF WE ARE LOCAL TO DEV, GET SECRET VARS FROM MACHINE ELSE USE PROCESS (AZURE)
@@ -80,10 +80,10 @@ namespace RdlNet2018.Common.Repos
             request.AddHeader("content-type", "application/json");
             request.AddJsonBody($"{{ \"client_id\":\"{client_id}\",\"client_secret\":\"{ client_secret}\",\"audience\":\"{audience}\",\"grant_type\":\"{grant_type}\" }}");
             IRestResponse response = client.Execute(request);
-            JObject token = JObject.Parse(response.Content);
+            TokenData token = JsonConvert.DeserializeObject<TokenData>(response.Content);
 
             return await Task.Run(() =>
-                (string)token["access_token"]
+                token
             );
         }
 

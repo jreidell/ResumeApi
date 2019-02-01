@@ -11,6 +11,7 @@ namespace RdlNet2018.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize]
     public class CareerInfoController : ControllerBase
     {
         private IRepositoryWrapper _repo;

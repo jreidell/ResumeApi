@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,16 +34,16 @@ namespace RdlNet2018
             //    options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyOrigin(); });
             //});
 
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //}).AddJwtBearer(options =>
-            //{
-            //    options.Authority = Configuration["Auth0:Authority"];
-            //    options.Audience = Configuration["Auth0:Audience"];
-            //    //options.RequireHttpsMetadata = false;
-            //});
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = Environment.GetEnvironmentVariable("rdn_UrlNoTrailingSlash");
+                options.Audience = Environment.GetEnvironmentVariable("rdn_Audience");
+                //options.RequireHttpsMetadata = false;
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -92,7 +93,7 @@ namespace RdlNet2018
                 app.UseHsts();
             }
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             //app.UseCors("CorsPolicy");
 

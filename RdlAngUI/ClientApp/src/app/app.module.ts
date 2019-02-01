@@ -12,7 +12,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { OverviewComponent } from './overview/overview.component';
 
-import { JwtInterceptor, ErrorInterceptor } from './_net';
+import { JwtInterceptor } from './_net';
+import { Globals } from './_models';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_net';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ],
+    Globals],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule{}
