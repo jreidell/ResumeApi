@@ -3,7 +3,7 @@
 
 A demo application of an async repository pattern, aspnet core, RESTful web api that provides access to a MSSQL database schema 
 representation of a Resume. The User Interface applications used to view this data view the RESTful web api are implemented using 
-angular, react, android, iPhone and UWP. All of these UIs can be used to view thedata via different "resume viewers". These are 
+angular, react, android, iPhone and UWP. All of these UIs can be used to view the data via different "resume viewers". These are 
 represented as a series of pages, components, fragments, modules, models and markup languages in various flavors of applications.
 
 This is a Web API implementation of an entity based resume model. This is based on my personal resume and is not intended to be a 
