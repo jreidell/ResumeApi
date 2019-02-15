@@ -11,7 +11,7 @@ world data in a real world scenario.
 
 Solution Files:
 
-1. #RdlNet2018DB# - This is a folder that contains a simple table creation script and an ER Diagram image to show what the db 
+1. # RdlNet2018DB # - This is a folder that contains a simple table creation script and an ER Diagram image to show what the db 
                   schema should look like upon creation. The files in this folder are included as a solution folder named 
                   DBFiles.                  
 
