@@ -47,7 +47,6 @@ namespace RdlMvcUI.Controllers
 
             using (var client = new HttpClient())
             {
-                //client.BaseAddress = new Uri("https://localhost:44386/api/v1/");
                 client.BaseAddress = new Uri($"{UriHelper.BuildAbsolute(Request.Scheme, Request.Host)}api/v1/");
                 //HTTP GET
                 var responseTask = client.GetAsync($"CareerInfo/{id.GetValueOrDefault()}");

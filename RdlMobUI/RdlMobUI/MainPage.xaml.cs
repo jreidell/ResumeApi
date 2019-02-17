@@ -20,48 +20,56 @@ namespace RdlMobUI
 
         public MainPage()
         {
-            GetResumeData();
-            if(!string.IsNullOrEmpty(_errorMessage))
+            GetResumeData(Guid.Parse("58f21038-a7e4-46ec-b036-08d667882bcb"));
+            if (!string.IsNullOrEmpty(_errorMessage))
             {
                 DisplayAlert("Error", $"{_errorMessage}", "Close");
             }
             InitializeComponent();
         }
 
-        private async void GetResumeData()
+        private async void GetResumeData(Guid? id)
         {
-            //AZURE URL
-            var url = "https://rdlsvc.azurewebsites.net/api/v1/CareerInfo/58f21038-a7e4-46ec-b036-08d667882bcb";
-
-            var client = new HttpClient();
-            try
+            using (var client = new HttpClient())
             {
-                var response = await client.GetStringAsync(url);
-                if (!string.IsNullOrEmpty(response))
+                try
                 {
-                    List<CareerInfo> data = await Task.Run(() => JsonConvert.DeserializeObject<List<CareerInfo>>(response));
-                    _careerInfo = data[0];
+                    client.BaseAddress = new Uri("https://rdlsvc.azurewebsites.net/api/v1/");
+                    //HTTP GET
+                    var responseTask = client.GetAsync($"CareerInfo/{id.GetValueOrDefault()}");
+                    responseTask.Wait();
 
-                    svStats.TotalEmployers = _careerInfo.WorkHistory.Count.ToString();
+                    var result = responseTask.Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        var readTask = result.Content.ReadAsStringAsync();
+                        readTask.Wait();
 
-                    lblFullName.Text = $"{_careerInfo.FirstName} {_careerInfo.MiddleName} {_careerInfo.LastName}, {_careerInfo.Suffix}";
-                    lblTitle.Text = $"{_careerInfo.CareerInfoTitle}";
-                    _contactInfo = $"{_careerInfo.Address1}\n{_careerInfo.City}, {_careerInfo.State} {_careerInfo.PostalCode}\n"
-                                + $"{_careerInfo.EmailAddress}\nHome: {_careerInfo.Phone}\nMobile: {_careerInfo.Mobile}\n";
+                        _careerInfo = await Task.Run(() => JsonConvert.DeserializeObject<CareerInfo>(readTask.Result));
 
-                    _summary = $"{_careerInfo.Summary}";
+                        svStats.TotalEmployers = _careerInfo.WorkHistory.Count.ToString();
 
+                        lblFullName.Text = $"{_careerInfo.FirstName} {_careerInfo.MiddleName} {_careerInfo.LastName}, {_careerInfo.Suffix}";
+                        lblTitle.Text = $"{_careerInfo.CareerInfoTitle}";
+                        _contactInfo = $"{_careerInfo.Address1}\n{_careerInfo.City}, {_careerInfo.State} {_careerInfo.PostalCode}\n"
+                                    + $"{_careerInfo.EmailAddress}\nHome: {_careerInfo.Phone}\nMobile: {_careerInfo.Mobile}\n";
+
+                        _summary = $"{_careerInfo.Summary}";
+                    }
+                    else //web api sent error response 
+                    {
+                        //log response status here..
+
+                        _careerInfo = null;
+
+                        _errorMessage = "Server error. Please contact administrator.";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    _errorMessage = "No Data";
+                    _errorMessage = ex.Message;
                 }
             }
-            catch (Exception ex)
-            {
-                _errorMessage = ex.Message;
-            }
-
 
         }
 
