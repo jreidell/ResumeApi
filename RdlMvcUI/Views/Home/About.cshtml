@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h1>About Reidell.net - MVC Resume Viewer UI</h1>
+    <p>
+        This application is a demonstration of combining an MVC Front-End application written in C# using AspNet Core v2.2 that provides data to itself, as well as multiple 
+        external applications via secure Web API Endpoints that present Live Resume Data from my Resume, served from an Azure SQL Datastore via the Microsoft Entity Framework 
+        Core v2.2 using a Repository Pattern, amongst other fancy bobbles and trinkets. This application is hosted in Microsoft Azure App Services and the Web API is secured 
+        using a Strategy that integrates JSON Web Token (JWT) Authorization provided by Auth0. External Applications may access deeper Web API Endpoints using a secure JWT 
+        while basic Get requests are open to all traffic. There is also a Mobile UI that is written to run on Android, iOS and Windows Mobile platforms that itegrates with 
+        this Web API.
+    </p>
+    <p>
+        The source code for this application and all included integration examples are available for review and general perusal at 
+        <a href="https://github.com/jreidell/resumeapi" target="_blank">GitHub.com</a>. Feel free to 
+        <a href="mailto:joe@reidell.net">Email Joe</a> if you have any comments or questions. Enjoy!
+    </p>
+</div>
