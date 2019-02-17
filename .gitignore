@@ -282,3 +282,11 @@ __pycache__/
 /package-lock.json
 
 /ConfigSettings_SECRETS.txt
+/RdlDocSvc/appsettings.json
+/RdlDocSvc/appsettings.Development.json
+/RdlDocSvc/Properties/launchSettings.json
+/RdlMvcUI/Properties/launchSettings.json
+/RdlMvcUI/appsettings.json
+/RdlMvcUI/appsettings.Development.json
+/RdlDocSvc/Dockerfile.original
+/RdlMvcUI/Properties/PublishProfiles/rdlsvc - Web Deploy.pubxml

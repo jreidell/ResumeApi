@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RdlNet2018.Common.Models
 {
@@ -24,9 +25,11 @@ namespace RdlNet2018.Common.Models
         [JsonProperty("JobDescription")]
         public string JobDescription { get; set; }
 
+        [DataType(DataType.Date)]
         [JsonProperty("StartDate")]
         public DateTime StartDate { get; set; }
 
+        [DataType(DataType.Date)]
         [JsonProperty("EndDate")]
         public DateTime EndDate { get; set; }
 

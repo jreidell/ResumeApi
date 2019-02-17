@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
     body {
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      perspective: 1px;
+      transform-style: preserve-3d;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
       font-size: 8pt;
     }
 
@@ -35,34 +43,42 @@
       margin-bottom: 5mm;
     }
 
-    #resumeContent {
-      margin-top: 1.5cm;
-      margin-left: 1cm;
-      margin-right: 1cm;
-    }
+#resumeContent {
+  margin-top: 1.5cm;
+  margin-left: 1cm;
+  margin-right: 1cm;
+}
 
-    #progressDiv {
-      margin-top: 1.5cm;
-    }
+#para {
+  /*background-image: url('https://localhost/path/to/image/file.jpg');*/
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-    #limheight {
+#progressDiv {
+      margin-top: 1.5cm;
+}
+
+#limheight {
       /*min-height: 300px;*/
       -webkit-column-count: 3;
       -moz-column-count: 3;
       column-count: 3; /*3 is just placeholder -- can be anything*/
       font-size: 7pt;
-    }
+}
 
-      #limheight li {
+#limheight li {
         list-style-type: circle;
         padding-bottom: 5px;
         margin-right: 5mm;
         margin-left: 5mm;
-      }
+}
 
-        #limheight li a {
+#limheight li a {
           color: rgb(0, 162, 232);
-        }
+}
 
 h2 {
   text-align: center;

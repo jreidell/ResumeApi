@@ -13,7 +13,7 @@ using RdlNet2018.Data;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 
-namespace RdlNet2018
+namespace RdlDocSvc
 {
     public class Startup
     {
@@ -99,7 +99,7 @@ namespace RdlNet2018
                 app.UseHsts();
             }
 
-            if (!disableJWT)
+            if(!disableJWT)
                 app.UseAuthentication();
 
             //app.UseCors("CorsPolicy");

@@ -13,7 +13,7 @@ using RdlNet2018.Data;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 
-namespace RdlNet2018
+namespace RdlMvcUI
 {
     public class Startup
     {
@@ -29,12 +29,12 @@ namespace RdlNet2018
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            // Add service and create Policy with options
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyOrigin(); });
-            //});
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
 
             disableJWT = Configuration["DisableJWT"].Equals("true", StringComparison.InvariantCultureIgnoreCase);
 
@@ -51,7 +51,8 @@ namespace RdlNet2018
                     //options.RequireHttpsMetadata = false;
                 });
             }
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Add EF services to the services container.
             services.AddEntityFrameworkSqlServer()
@@ -77,10 +78,10 @@ namespace RdlNet2018
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "Reidell.net 2018 - RdlNet2018 Web API",
-                    Description = "ASP.NET Core Web API - RdlNet2018",
+                    Title = "Reidell.net - MVC Resume Viewer",
+                    Description = "ASP.NET Core MVC/Web API ",
                     TermsOfService = "None",
-                    Contact = new Contact() { Name = "Reidell.net 2018 - RdlNet2018 Web API", Email = "joe@reidell.net", Url = "reidell.net" }
+                    Contact = new Contact() { Name = "Reidell.net - MVC Resume Viewer", Email = "joe@reidell.net", Url = "reidell.net" }
                 });
             });
 
@@ -95,6 +96,7 @@ namespace RdlNet2018
             }
             else
             {
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -102,17 +104,23 @@ namespace RdlNet2018
             if (!disableJWT)
                 app.UseAuthentication();
 
-            //app.UseCors("CorsPolicy");
-
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
 
             if (!Configuration["DisableSwagger"].Equals("true", StringComparison.InvariantCultureIgnoreCase))
             {
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reidell.net 2018 - RdlNet2018 Web API");
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Reidell.net - MVC Resume Viewer");
                 });
             }
         }

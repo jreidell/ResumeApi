@@ -1,0 +1,41 @@
+﻿@model RdlNet2018.Common.Models.CareerInfo
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="resumeContent">
+    <div id="para">
+        <h2>@Model.FirstName @Model.MiddleName @Model.LastName, @Model.Suffix</h2>
+        <h6>@Model.Address1, @Model.City, @Model.State @Model.PostalCode</h6>
+        <h6>@Model.EmailAddress, @Model.Phone, Mobile: @Model.Mobile</h6>
+        <hr />
+        <h4>@Model.CareerInfoTitle</h4>
+        <hr />
+        <p>@Model.Summary</p>
+    </div>
+    <ul id="limheight">
+        @foreach (var jobSkill in @Model.JobSkills)
+        {
+            <li>@jobSkill.JobSkillTitle</li>
+        }
+    </ul>
+    <hr />
+    <ul>
+        @foreach (var workHistory in @Model.WorkHistory)
+        {
+            <li class="empListing">@workHistory.Employer, @workHistory.StartDate.ToString("MMMM yyyy") - @workHistory.EndDate.ToString("MMMM yyyy")</li>
+            <li class="jobTitle">@workHistory.JobTitle</li>
+            <li class="jobDescription">@workHistory.JobDescription</li>
+            <li class="noDotLi">
+                <ul>
+                    @foreach (var workHistoryDetail in workHistory.WorkHistoryDetails)
+                    {
+                        <li class="workHistoryDetail">@workHistoryDetail.ContentBody</li>
+                    }
+                </ul>
+            </li>
+            <hr />
+        }
+    </ul>
+</div>

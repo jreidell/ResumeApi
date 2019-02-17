@@ -8,13 +8,15 @@
   <mat-progress-bar mode="indeterminate" title="Loading Resume Data, please wait one moment..."></mat-progress-bar>
 </div>
 <div *ngFor="let resume of resumes" id="resumeContent">
-  <h2 (click)="getTokenData()">{{resume.FirstName}} {{resume.MiddleName}} {{resume.LastName}}, {{resume.Suffix}}</h2>
-  <h6>{{resume.Address1}}, {{resume.City}}, {{resume.State}} {{resume.PostalCode}}</h6>
-  <h6>{{resume.EmailAddress}}, {{resume.Phone}}, Mobile: {{resume.Mobile}}</h6>
-  <hr />
-  <h4>{{resume.CareerInfoTitle}}</h4>
-  <hr />
-  <p>{{resume.Summary}}</p>
+  <div id="para">
+    <h2 (click)="getTokenData()">{{resume.FirstName}} {{resume.MiddleName}} {{resume.LastName}}, {{resume.Suffix}}</h2>
+    <h6>{{resume.Address1}}, {{resume.City}}, {{resume.State}} {{resume.PostalCode}}</h6>
+    <h6>{{resume.EmailAddress}}, {{resume.Phone}}, Mobile: {{resume.Mobile}}</h6>
+    <hr />
+    <h4>{{resume.CareerInfoTitle}}</h4>
+    <hr />
+    <p>{{resume.Summary}}</p>
+  </div>
   <ul id="limheight">
     <li *ngFor="let jobSkill of resume.JobSkills">{{jobSkill.JobSkillTitle}}</li>
   </ul>
