@@ -8,13 +8,18 @@
 
 @if (showBanner)
 {
-    <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        We do not use cookies for anything intentional. There may be cookies set from within the AspNet Core but this site does not use any tracking cookies nor 
-        does it store any information about it's visitors beyond that of simple web access logs. <a asp-area="" asp-controller="Home" asp-action="Privacy">Learn More</a>.
+<div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
+    <p>
         <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
             <span aria-hidden="true">Accept</span>
         </button>
+    </p>
+    <div style="margin-top: 30px;">
+        We do not use cookies for anything intentional other than determining whether or not to display this message. There may be cookies set from within the AspNet Core but
+        this site does not use any tracking cookies nor does it store any information about it's visitors beyond that of simple web access logs.
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">Learn More</a>.
     </div>
+</div>
     <script>
         (function () {
             var button = document.querySelector("#cookieConsent button[data-cookie-string]");
