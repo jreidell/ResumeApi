@@ -290,3 +290,4 @@ __pycache__/
 /RdlMvcUI/appsettings.Development.json
 /RdlDocSvc/Dockerfile.original
 /RdlMvcUI/Properties/PublishProfiles/rdlsvc - Web Deploy.pubxml
+/RdlMvcUI/package-lock.json
