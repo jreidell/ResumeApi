@@ -67,8 +67,12 @@ namespace RdlMvcUI.Controllers
                     resume = null;
 
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                    //log exception
+                    Response.StatusCode = 404;
+                    return View("NotFound");
                 }
             }
+
             return View(resume);
 
         }

@@ -1,7 +1,7 @@
 ﻿@model RdlNet2018.Common.Models.CareerInfo
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Resume Viewer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div id="resumeContent">
@@ -14,28 +14,30 @@
         <hr />
         <p>@Model.Summary</p>
     </div>
-    <ul id="limheight">
-        @foreach (var jobSkill in @Model.JobSkills)
-        {
-            <li>@jobSkill.JobSkillTitle</li>
-        }
-    </ul>
-    <hr />
-    <ul>
+    <div id="detail">
+        <ul id="limheight">
+            @foreach (var jobSkill in @Model.JobSkills)
+            {
+                <li>@jobSkill.JobSkillTitle</li>
+            }
+        </ul>
+        <hr />
         @foreach (var workHistory in @Model.WorkHistory)
         {
-            <li class="empListing">@workHistory.Employer, @workHistory.StartDate.ToString("MMMM yyyy") - @workHistory.EndDate.ToString("MMMM yyyy")</li>
-            <li class="jobTitle">@workHistory.JobTitle</li>
-            <li class="jobDescription">@workHistory.JobDescription</li>
-            <li class="noDotLi">
-                <ul>
-                    @foreach (var workHistoryDetail in workHistory.WorkHistoryDetails)
-                    {
-                        <li class="workHistoryDetail">@workHistoryDetail.ContentBody</li>
-                    }
-                </ul>
-            </li>
+            <ul>
+                <li class="empListing">@workHistory.Employer, @workHistory.StartDate.ToString("MMMM yyyy") - @workHistory.EndDate.ToString("MMMM yyyy")</li>
+                <li class="jobTitle">@workHistory.JobTitle</li>
+                <li class="jobDescription">@workHistory.JobDescription</li>
+                <li class="noDotLi">
+                    <ul>
+                        @foreach (var workHistoryDetail in workHistory.WorkHistoryDetails)
+                        {
+                            <li class="workHistoryDetail">@workHistoryDetail.ContentBody</li>
+                        }
+                    </ul>
+                </li>
+            </ul>
             <hr />
         }
-    </ul>
+    </div>
 </div>
