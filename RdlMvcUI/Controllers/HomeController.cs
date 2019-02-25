@@ -59,7 +59,7 @@ namespace RdlMvcUI.Controllers
         [Route("{*url}", Order = 999)]
         public IActionResult CatchAll()
         {
-            Response.StatusCode = 500;
+            Response.StatusCode = 404;
             return View();
         }
     }
