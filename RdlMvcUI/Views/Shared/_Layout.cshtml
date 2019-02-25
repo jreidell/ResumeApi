@@ -21,9 +21,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Reidell.net MVC UI</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white-50" asp-area="" asp-controller="Home" asp-action="Index">Reidell.net MVC UI</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,27 +31,64 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/resume/details/58f21038-a7e4-46ec-b036-08d667882bcb">Resume Viewer</a>
+                            <a class="nav-link text-white-50" href="/resume/details/58f21038-a7e4-46ec-b036-08d667882bcb">Resume Viewer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container main-content-area">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Reidell.net - MVC Resume Viewer - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-white-50 w-100">
+        <div class="row-fluid pt-1 text-left">
+            <span class="ml-2 pt-2 boots-top">The following technologies were integrated into the implementation of this demo:</span>
         </div>
+
+        <div class="row mr-1">
+            <div class="boots container col-md-3 pt-2">
+                C# .Net<br />
+                Angular v6<br />
+                Typescript v3.x<br />
+                Microsoft Azure<br />
+                ASP.Net Core v2.2<br />
+                Microsoft Azure SQL<br />
+                Cascading Style Sheets (css)
+            </div>
+
+            <div class="boots container col-md-5 pt-2 text-center">
+                Web API<br />
+                OAuth 2.0<br />
+                RESTful Web Service<br />
+                Azure App Services<br />
+                Xamarin, Android, iOS<br />
+                Node Package Manager<br />
+                GitHub Source Code
+            </div>
+
+            <div class="boots container col-md-3 pt-2 text-right">
+                Repository Pattern<br />
+                Unit of Work Pattern<br />
+                Dependency Injection<br />
+                Model View Controller<br />
+                Model View - View Model<br />
+                Javascript Object Notation (JSON)<br />
+                JSON Web Tokens (JWT)
+            </div>
+        </div>
+
+        <div class="row-fluid mr-2 text-right boots-copy">
+            <span class="ml-2" (click)="topFunction()">&copy; 2019 - Reidell.net - MVC Resume Viewer</span>
+        </div>
+
     </footer>
 
     <environment include="Development">
