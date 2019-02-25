@@ -55,10 +55,11 @@ namespace RdlMvcUI.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [Route("{*url}", Order = 999)]
         public IActionResult CatchAll()
         {
-            Response.StatusCode = 404;
+            Response.StatusCode = 500;
             return View();
         }
     }
