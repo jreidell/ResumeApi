@@ -10,8 +10,8 @@ namespace RdlNetSvc.Common.Contracts
         Task<IEnumerable<AuthUser>> AuthLoginAsync(string uid, string pwd);
         Task<IEnumerable<AuthUser>> GetAllAuthUsersAsync();
         Task<AuthUser> GetAuthUserByIdAsync(Guid authUserId);
-        Task CreateAuthUserAsync(AuthUser careerInfo);
-        Task UpdateAuthUserAsync(AuthUser careerInfo);
-        Task DeleteAuthUserAsync(AuthUser careerInfo);
+        Task CreateAuthUserAsync(AuthUser authUser);
+        Task UpdateAuthUserAsync(AuthUser authUser);
+        Task DeleteAuthUserAsync(AuthUser authUser);
     }
 }

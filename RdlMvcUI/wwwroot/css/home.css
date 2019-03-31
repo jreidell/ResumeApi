@@ -4,9 +4,9 @@
   margin-top: 1.5cm;
 }
 
-.carousel-indicators li {
+/*.carousel-indicators li {
     list-style-type: circle;
-}
+}*/
 
 @media (min-width: 768px) {
     #overviewContent {
