@@ -29,6 +29,16 @@
     <None Remove="Controllers\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\src\components\ResPrint.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\src\components\ResPrint.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

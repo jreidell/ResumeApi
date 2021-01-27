@@ -5,7 +5,13 @@ import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
 
 export class NavMenu extends Component {
-  displayName = NavMenu.name
+    displayName = NavMenu.name
+
+    openInNewTab = (url) => {
+        var win = window.open(url, '_blank');
+        if (win != null)
+            win.focus();
+    }
 
   render() {
     return (
@@ -26,6 +32,11 @@ export class NavMenu extends Component {
             <LinkContainer to={'/resview'}>
               <NavItem>
                 <Glyphicon glyph='thumbs-up' /> Resume Viewer
+              </NavItem>
+            </LinkContainer>
+            <LinkContainer  to="#" onClick={e => this.openInNewTab('/pdf')}>
+              <NavItem>
+                <Glyphicon glyph='glyphicon glyphicon-download-alt' /> Printable Resume
               </NavItem>
             </LinkContainer>
           </Nav>

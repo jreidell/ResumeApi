@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Layout } from './Layout';
 
 export class Home extends Component {
   displayName = Home.name
 
   render() {
     return (
+      <Layout>
       <div>
         <h1>Reidell.Net - ASP.NET Core, Web API, REST, LINQ, AzureSQL (MSSQL), REACT, Angular, Bootstrap, JSON, Azure App Services, Xamarin, Android</h1>
         <p><strong>Welcome to my demo, single-page application, built with:</strong></p>
@@ -29,6 +31,7 @@ export class Home extends Component {
         </ul>
         <p>Click the Resume Viewer link in the Navigation Menu to view realtime resume data from a cloud-based MSSQL Server Instance via an ASP.NET Core, Web API. UI Application is built on Angular version 5. This application is a real world representation of my actual resume in object form.</p>
       </div>
+      </Layout>
     );
   }
 }

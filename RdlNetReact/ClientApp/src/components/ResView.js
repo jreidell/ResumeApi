@@ -1,69 +1,90 @@
 ﻿import React, { Component } from 'react';
 import moment from 'moment';
+import { Layout } from './Layout';
+import './ResPrint.css';
 
 export class ResView extends Component {
     displayName = ResView.name
 
     constructor(props) {
         super(props);
-        this.state = { careerInfos: [], loading: true };
+        this.state = { careerInfos: [], loading: true, token: '' };
 
         //MICROSERVICE URL
         //https://localhost:44389/api/v1/CareerInfo/21a61a6a-6554-4e7f-a974-08d663d5d19f
         //https://localhost:8304/api/v1/CareerInfo/21a61a6a-6554-4e7f-a974-08d663d5d19f
-
+        this.getTokenFromServer();
         fetch('https://rdlsvc.azurewebsites.net/api/v1/CareerInfo/58f21038-a7e4-46ec-b036-08d667882bcb', {
             headers: {
-                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlFURTROREU0UXpCR01UbENRekkyT1VZNFJUWkdRelF3UXpFME9FTXlRalpGTVVNNE9EVTFRdyJ9.eyJpc3MiOiJodHRwczovL3JkbG5ldHRlc3RhMC5hdXRoMC5jb20vIiwic3ViIjoiN3M4dEVkVERpOTNkeGg3dTB5eTZuNzhQaGQ0RzRaYTRAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vcmRsbmV0dGVzdGEwLmF1dGgwLmNvbS9hcGkvdjIvIiwiaWF0IjoxNTQ3MDY3MzgzLCJleHAiOjE1NDcxNTM3ODMsImF6cCI6IjdzOHRFZFREaTkzZHhoN3UweXk2bjc4UGhkNEc0WmE0IiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.b65zpZ_miftTEp4h_Hx4fBO2JbRu7V_YsLS0fWm1sZL-BEJI3ro1-cF1Kf3C3D572ziVeh3zYXla3iiXk1j5dWr-ZLRrrQK3P20On6H7UOROgtPnG2Xw3LtMUv6PkNNDYH-_di1v5kBfwg02ndpVF2c1fAXUtIcmi8dc2qZDv8Cpm2tpDXGnIqf54zJYIpTOfGRvFfivPARW6Hpr8_3aBZCHIheiIOgBGkdyPi4no0cmz3ezWHbOht_ADUCTDZJps5ML9IIi0jLef0gctBmv4ClfUfeyKDGQAZLe0Efdm2ymGCY8GQD3a1viGB3f2n9QN3h3cvZAsFgHrqNtdh-NQA",
+                "Authorization": `Bearer ${this.getToken()}`,
                 }
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 this.setState({ careerInfos: data, loading: false });
             });
     }
 
+    getTokenFromServer() {
+        // Get a token from api server using the fetch api
+        return fetch('https://rdlsvc.azurewebsites.net/api/v1/AuthUser/GetToken')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                console.log(data.access_token);
+                this.setState({ token: data });
+                this.setToken(this.state.token.access_token);
+                //return Promise.resolve(res);
+            });
+    }
+
+    setToken(idToken) {
+        // Saves user token to localStorage
+        localStorage.setItem('id_token', idToken);
+    }
+
+    getToken() {
+        // Retrieves the user token from localStorage
+        return localStorage.getItem('id_token');
+    }
+
     static renderResumeDiv(careerInfos) {
         return (
-            <table className='table'>
-                <tbody>
-                    {careerInfos.map(careerInfo =>
-                        <tr key={careerInfo.CareerInfoId}>
-                            <td>
-                                <h2>{careerInfo.FirstName} {careerInfo.MiddleName} {careerInfo.LastName}, {careerInfo.Suffix}</h2>
-                                <h6>{careerInfo.Address1}, {careerInfo.City}, {careerInfo.State} {careerInfo.PostalCode}</h6>
-                                <h6>{careerInfo.EmailAddress}, {careerInfo.Phone}, Mobile: {careerInfo.Mobile}, </h6>
-                                <hr />
-                                <h4>{careerInfo.CareerInfoTitle}</h4>
-                                <hr />
-                                <p>{careerInfo.Summary}</p>
-                                <hr />
-                                <ul id="limheight">
-                                    {careerInfo.JobSkills.map(jobSkill =>
-                                        <li key={jobSkill.JobSkillId}>{jobSkill.JobSkillTitle}</li>
+            <div id="resumeContent">
+                <div id="para">
+                    <h2>{careerInfos.FirstName} {careerInfos.MiddleName} {careerInfos.LastName}, {careerInfos.Suffix}</h2>
+                    <h6>{careerInfos.Address1}, {careerInfos.City}, {careerInfos.State} {careerInfos.PostalCode}</h6>
+                    <h6>{careerInfos.EmailAddress}, {careerInfos.Phone}, Mobile: {careerInfos.Mobile}</h6>
+                    <hr />
+                    <h4>{careerInfos.CareerInfoTitle}</h4>
+                    <hr />
+                    <p>{careerInfos.Summary}</p>
+                </div>
+                <div id="detail">
+                    <ul id="limheight">
+                        {careerInfos.JobSkills.map(jobSkill =>
+                            <li key={jobSkill.JobSkillId}>{jobSkill.JobSkillTitle}</li>
+                        )}
+                    </ul>
+                    <hr />
+                    {careerInfos.WorkHistory.map(workHistory =>
+                        <ul key={workHistory.WorkHistoryId}>
+                            <li className="empListing">{workHistory.Employer}, {moment(workHistory.StartDate).format("MMM YYYY")} - {moment(workHistory.EndDate).format("MMM YYYY")}</li>
+                            <li className="jobTitle">{workHistory.JobTitle}</li>
+                            <li className="jobDescription">{workHistory.JobDescription}</li>
+                            <li className="noDotLi">
+                                <ul className="jobDetailSpacer">
+                                    {workHistory.WorkHistoryDetails.map(workHistoryDetail =>
+                                        <li key={workHistoryDetail.WorkHistoryDetailId} className="workHistoryDetail">{workHistoryDetail.ContentBody}</li>
                                     )}
                                 </ul>
-                                <hr />
-                                {careerInfo.WorkHistory.map(workHistory =>
-                                    <ul className="jobTitleSpacer" key={workHistory.WorkHistoryId}>
-                                        <li className="empListing">{workHistory.Employer}, {moment(workHistory.StartDate).format("MMM YYYY")} - {moment(workHistory.EndDate).format("MMM YYYY")}</li>
-                                        <li className="jobTitle">{workHistory.JobTitle}</li>
-                                        <li className="jobDescription">{workHistory.JobDescription}</li>
-                                        <li className="noDotLi">
-                                            <ul className="jobDetailSpacer">
-                                                {workHistory.WorkHistoryDetails.map(workHistoryDetail =>
-                                                    <li key={workHistoryDetail.WorkHistoryDetailId} className="workHistoryDetail">{workHistoryDetail.ContentBody}</li>
-                                                )}
-                                            </ul>
-                                        </li>
-                                        <hr />
-                                    </ul>
-                                    )}
-                            </td>
-                        </tr>
+                            </li>
+                            <hr />
+                        </ul>
                     )}
-                </tbody>
-            </table>
+                </div>
+            </div>
         );
     }
 
@@ -73,11 +94,11 @@ export class ResView extends Component {
             : ResView.renderResumeDiv(this.state.careerInfos);
 
         return (
-            <div>
-                <h1>Resume Viewer</h1>
-                <p>This component demonstrates viewing the resume data via React.</p>
-                {contents}
-            </div>
+            <Layout>
+               <div>
+                  {contents}
+                </div>
+            </Layout>
         );
     }
 
